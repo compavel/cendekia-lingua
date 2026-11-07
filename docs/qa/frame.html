@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>QA viewport harness — Cendekia Lingua</title>
+  <style>
+    html, body { margin: 0; min-height: 100%; background: #1f1f1f; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    .bar { display: flex; align-items: center; gap: 12px; padding: 8px 12px; color: #f5f5f5; font-size: 12px; }
+    .bar strong { color: #f6c445; }
+    .stage { width: max-content; margin: 0 auto 24px; background: #fff; box-shadow: 0 0 0 1px #555; }
+    iframe { display: block; border: 0; background: #fff; }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <strong>QA harness</strong>
+    <span id="label">memuat…</span>
+    <span>Dev-only. Jangan dipublikasikan.</span>
+  </div>
+  <div class="stage">
+    <iframe id="frame" src="about:blank" title="Halaman uji pada ukuran viewport tertentu"></iframe>
+  </div>
+
+  <script>
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const requestedPage = params.get('page') || '/index.html';
+      const width = Math.min(2000, Math.max(200, Number(params.get('w')) || 390));
+      const height = Math.min(2000, Math.max(200, Number(params.get('h')) || 844));
+      const path = requestedPage.startsWith('/') ? requestedPage : `/${requestedPage}`;
+      const frame = document.getElementById('frame');
+      const label = document.getElementById('label');
+
+      frame.style.width = `${width}px`;
+      frame.style.height = `${height}px`;
+      frame.src = new URL(path, window.location.origin).href;
+      label.textContent = `${frame.src} · ${width}×${height}`;
+    })();
+  </script>
+</body>
+</html>

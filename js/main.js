@@ -68,8 +68,8 @@ const Cendekia = {
           dialog.close();
         } else {
           dialog.removeAttribute('open');
-          restoreFocus();
         }
+        restoreFocus();
       };
 
       triggers.forEach((trigger) => {
@@ -93,6 +93,11 @@ const Cendekia = {
         if (event.target === dialog) {
           close();
         }
+      });
+
+      dialog.addEventListener('cancel', (event) => {
+        event.preventDefault();
+        close();
       });
 
       dialog.addEventListener('close', restoreFocus);

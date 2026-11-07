@@ -230,6 +230,7 @@ p {
   border: 2px solid var(--navy-900);
   border-radius: 12px;
   background: var(--yellow-400);
+  color: var(--navy-900);
   font-family: var(--font-body);
   font-size: .82rem;
   font-weight: 700;
