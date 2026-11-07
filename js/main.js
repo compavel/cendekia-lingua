@@ -2,9 +2,12 @@ document.documentElement.classList.add('js');
 
 const Cendekia = {
   init() {
+    this.initExportMode();
     this.initDialogs();
     this.initMobileNav();
     this.initTabs();
+    this.initStickyCta();
+    this.initReveal();
   },
 
   initDialogs() {
@@ -179,6 +182,63 @@ const Cendekia = {
 
     const initial = tabs.findIndex((tab) => tab.getAttribute('aria-selected') === 'true');
     activate(initial < 0 ? 0 : initial);
+  },
+
+  initStickyCta() {
+    const bar = document.querySelector('[data-sticky-cta]');
+    const hero = document.querySelector('[data-hero]');
+    if (!bar || !hero) return;
+
+    const setVisible = (visible) => {
+      bar.hidden = !visible;
+      document.body.classList.toggle('has-sticky-cta', visible);
+    };
+
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => setVisible(!entry.isIntersecting));
+        },
+        { threshold: 0 },
+      );
+      observer.observe(hero);
+      return;
+    }
+
+    const update = () => setVisible(window.scrollY > hero.offsetTop + hero.offsetHeight);
+    window.addEventListener('scroll', update, { passive: true });
+    update();
+  },
+
+  initReveal() {
+    const items = [...document.querySelectorAll('[data-reveal]')];
+    if (items.length === 0) return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      items.forEach((item) => item.classList.add('is-visible'));
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.12 },
+    );
+
+    items.forEach((item) => observer.observe(item));
+  },
+
+  initExportMode() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('export') === '1') {
+      document.documentElement.classList.add('is-export');
+    }
   },
 };
 

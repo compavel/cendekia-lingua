@@ -19,3 +19,13 @@ export const tags = (html, name) =>
 
 export const attr = (tag, name) =>
   tag.match(new RegExp(`\\b${name}="([^"]*)"`))?.[1] ?? null;
+
+export const text = (html) =>
+  html
+    .replace(/<script\b[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
