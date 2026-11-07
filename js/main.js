@@ -41,6 +41,7 @@ const Cendekia = {
     this.initTabs();
     this.initProgramFilters();
     this.initLeadForm();
+    this.initWireframe();
     this.initStickyCta();
     this.initReveal();
   },
@@ -384,6 +385,50 @@ const Cendekia = {
     panel.hidden = false;
     panel.querySelector('h2')?.focus();
     panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  },
+
+  initWireframe() {
+    const stage = document.querySelector('[data-wireframe-stage]');
+    if (!stage) return;
+
+    const frames = [...document.querySelectorAll('[data-artboard-frame]')];
+    const tabs = [...document.querySelectorAll('[data-artboard-tab]')];
+    if (frames.length === 0) return;
+
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('export') === '1') {
+      document.documentElement.classList.add('is-export');
+    }
+
+    const setActive = (name) => {
+      if (!frames.some((frame) => frame.dataset.artboardFrame === name)) return;
+      frames.forEach((frame) => {
+        frame.classList.toggle('is-active', frame.dataset.artboardFrame === name);
+      });
+      tabs.forEach((tab) => {
+        tab.setAttribute('aria-selected', String(tab.dataset.artboardTab === name));
+      });
+      document.documentElement.dataset.wireframeArtboard = name;
+    };
+
+    const requested = params.get('artboard');
+    const initial = ['desktop', 'mobile'].includes(requested)
+      ? requested
+      : window.matchMedia('(max-width: 759px)').matches
+        ? 'mobile'
+        : 'desktop';
+
+    setActive(initial);
+
+    if (!requested) {
+      const media = window.matchMedia('(max-width: 759px)');
+      const syncDefault = () => setActive(media.matches ? 'mobile' : 'desktop');
+      window.addEventListener('load', syncDefault, { once: true });
+    }
+
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => setActive(tab.dataset.artboardTab));
+    });
   },
 
   initStickyCta() {
