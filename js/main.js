@@ -1,5 +1,38 @@
 document.documentElement.classList.add('js');
 
+const LEAD_PROGRAMS = {
+  'english-teens': { name: 'English for Teens', language: 'inggris', schedule: 'weekday-sore' },
+  'english-campus': { name: 'English for Campus', language: 'inggris', schedule: 'weekday-malam' },
+  'english-work': { name: 'English for Work', language: 'inggris', schedule: 'online' },
+  'japanese-n5': { name: 'Japanese N5', language: 'jepang', schedule: 'sabtu' },
+  'japanese-n4': { name: 'Japanese N4', language: 'jepang', schedule: 'sabtu' },
+  'mandarin-hsk1-2': { name: 'Mandarin HSK 1–2', language: 'mandarin', schedule: 'weekday-malam' },
+};
+
+const LEAD_LABELS = {
+  audience: { sma: 'SMA', mahasiswa: 'Mahasiswa', pekerja: 'Pekerja' },
+  language: { inggris: 'Inggris', jepang: 'Jepang', mandarin: 'Mandarin' },
+  level: { pemula: 'Pemula', 'pernah-belajar': 'Pernah belajar', menengah: 'Menengah' },
+  schedule: {
+    'weekday-sore': 'Weekday sore (16.00–18.00)',
+    'weekday-malam': 'Weekday malam (18.30–20.30)',
+    sabtu: 'Sabtu (09.00–15.30)',
+    online: 'Online',
+  },
+};
+
+const LEAD_FIELDS = [
+  'name',
+  'whatsapp',
+  'email',
+  'audience',
+  'language',
+  'level',
+  'schedule',
+  'goal',
+  'consent',
+];
+
 const Cendekia = {
   init() {
     this.initExportMode();
@@ -7,6 +40,7 @@ const Cendekia = {
     this.initMobileNav();
     this.initTabs();
     this.initProgramFilters();
+    this.initLeadForm();
     this.initStickyCta();
     this.initReveal();
   },
@@ -206,6 +240,150 @@ const Cendekia = {
     buttons.forEach((button) => {
       button.addEventListener('click', () => apply(button.dataset.filter));
     });
+  },
+
+  initLeadForm() {
+    const form = document.querySelector('[data-lead-form]');
+    if (!form) return;
+
+    this.prefillLeadProgram(form);
+
+    const submit = form.querySelector('[data-submit]');
+    if (submit) {
+      submit.addEventListener('click', (event) => {
+        event.preventDefault();
+        this.submitLeadForm(form);
+      });
+    }
+
+    form.addEventListener('keydown', (event) => {
+      if (event.key !== 'Enter' || event.target instanceof HTMLTextAreaElement) return;
+      event.preventDefault();
+      this.submitLeadForm(form);
+    });
+
+    form.addEventListener('input', (event) => {
+      const field = event.target.name;
+      if (!field) return;
+      const error = form.querySelector(`[data-error-for="${field}"]`);
+      if (!error || error.hidden) return;
+      error.textContent = '';
+      error.hidden = true;
+      form
+        .querySelectorAll(`[name="${field}"]`)
+        .forEach((control) => control.removeAttribute('aria-invalid'));
+    });
+  },
+
+  prefillLeadProgram(form) {
+    const slug = new URLSearchParams(window.location.search).get('program');
+    const program = LEAD_PROGRAMS[slug];
+    if (!program) return;
+
+    const note = document.querySelector('[data-program-note]');
+    const name = document.querySelector('[data-program-name]');
+    if (name) name.textContent = program.name;
+    if (note) note.hidden = false;
+
+    const language = form.querySelector(`[name="language"][value="${program.language}"]`);
+    if (language) language.checked = true;
+
+    const schedule = form.querySelector('[name="schedule"]');
+    if (schedule) schedule.value = program.schedule;
+  },
+
+  normalizePhone(value) {
+    return String(value ?? '')
+      .replace(/[\s-]/g, '')
+      .replace(/^\+/, '');
+  },
+
+  isIndonesianPhone(value) {
+    const phone = this.normalizePhone(value);
+    return /^08\d{8,11}$/.test(phone) || /^628\d{8,11}$/.test(phone);
+  },
+
+  validateLeadForm(form) {
+    const data = new FormData(form);
+    const read = (name) => String(data.get(name) ?? '').trim();
+    const errors = {};
+
+    if (read('name').length < 2) {
+      errors.name = 'Nama minimal 2 karakter.';
+    }
+
+    if (!this.isIndonesianPhone(read('whatsapp'))) {
+      errors.whatsapp = 'Masukkan nomor WhatsApp Indonesia yang valid (08… atau 628…).';
+    }
+
+    const email = read('email');
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      errors.email = 'Format email belum benar.';
+    }
+
+    if (!read('audience')) errors.audience = 'Pilih salah satu.';
+    if (!read('language')) errors.language = 'Pilih bahasa yang ingin dipelajari.';
+    if (!read('level')) errors.level = 'Pilih level kamu.';
+    if (!read('schedule')) errors.schedule = 'Pilih jadwal favorit.';
+    if (read('goal').length > 300) errors.goal = 'Maksimal 300 karakter.';
+
+    const consent = form.querySelector('[name="consent"]');
+    if (!consent || !consent.checked) {
+      errors.consent = 'Kamu perlu setuju untuk dihubungi via WhatsApp.';
+    }
+
+    LEAD_FIELDS.forEach((field) => {
+      const message = errors[field];
+      const error = form.querySelector(`[data-error-for="${field}"]`);
+
+      form.querySelectorAll(`[name="${field}"]`).forEach((control) => {
+        if (message) {
+          control.setAttribute('aria-invalid', 'true');
+        } else {
+          control.removeAttribute('aria-invalid');
+        }
+      });
+
+      if (error) {
+        error.textContent = message ?? '';
+        error.hidden = !message;
+      }
+    });
+
+    const firstInvalid = LEAD_FIELDS.find((field) => errors[field]) ?? null;
+    if (firstInvalid) {
+      form.querySelector(`[name="${firstInvalid}"]`)?.focus();
+    }
+
+    return { valid: firstInvalid === null, firstInvalid };
+  },
+
+  submitLeadForm(form) {
+    const result = this.validateLeadForm(form);
+    if (!result.valid) return;
+
+    const data = new FormData(form);
+    const read = (name) => String(data.get(name) ?? '').trim();
+    const values = {
+      name: read('name'),
+      whatsapp: this.normalizePhone(read('whatsapp')),
+      audience: LEAD_LABELS.audience[read('audience')] ?? read('audience'),
+      language: LEAD_LABELS.language[read('language')] ?? read('language'),
+      level: LEAD_LABELS.level[read('level')] ?? read('level'),
+      schedule: LEAD_LABELS.schedule[read('schedule')] ?? read('schedule'),
+    };
+
+    const panel = document.querySelector('[data-form-success]');
+    if (!panel) return;
+
+    panel.querySelectorAll('[data-summary]').forEach((slot) => {
+      slot.textContent = values[slot.dataset.summary] ?? '';
+    });
+
+    form.hidden = true;
+    panel.hidden = false;
+    panel.querySelector('h2')?.focus();
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
   },
 
   initStickyCta() {

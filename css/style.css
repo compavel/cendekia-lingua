@@ -1484,6 +1484,226 @@ textarea[aria-invalid="true"] {
 }
 
 /* --------------------------------------------------------------------------
+   Registration page
+   -------------------------------------------------------------------------- */
+.daftar-layout {
+  display: grid;
+  gap: 32px;
+}
+
+.daftar-form-col {
+  min-width: 0;
+}
+
+.lead-form {
+  display: grid;
+  gap: 18px;
+  padding: 24px;
+  border: 1.5px solid var(--navy-900);
+  border-radius: var(--radius-card);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.lead-form fieldset.field {
+  min-width: 0;
+  padding: 0;
+  border: 0;
+}
+
+.lead-form legend {
+  padding: 0;
+}
+
+.choice-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 18px;
+}
+
+.choice {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding-block: 4px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.choice input {
+  width: 18px;
+  height: 18px;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  accent-color: var(--navy-900);
+}
+
+.req {
+  color: #B3261E;
+}
+
+.field-optional {
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.field-hint {
+  color: var(--muted);
+  font-size: .8rem;
+}
+
+.field-error {
+  color: #B3261E;
+  font-size: .85rem;
+  font-weight: 600;
+}
+
+.form-actions {
+  display: grid;
+  gap: 10px;
+  justify-items: start;
+  padding-top: 4px;
+}
+
+.form-note {
+  color: var(--muted);
+  font-size: .82rem;
+}
+
+.program-note {
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  border: 1.5px solid var(--navy-900);
+  border-left: 6px solid var(--yellow-400);
+  border-radius: 12px;
+  background: var(--yellow-100);
+  font-size: .92rem;
+}
+
+.form-success {
+  padding: 26px;
+  border: 2px solid var(--navy-900);
+  border-radius: var(--radius-card);
+  background: var(--white);
+  box-shadow: var(--shadow-soft);
+}
+
+.form-success h2 {
+  margin-block: 8px 12px;
+}
+
+.summary-list {
+  display: grid;
+  gap: 8px;
+  margin-block: 18px;
+  padding: 16px;
+  border-radius: 12px;
+  background: var(--cream);
+}
+
+.summary-list > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--line);
+}
+
+.summary-list > div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.summary-list dt {
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+.summary-list dd {
+  margin: 0;
+  font-weight: 600;
+  text-align: right;
+}
+
+.demo-note {
+  color: var(--muted);
+  font-size: .85rem;
+}
+
+.form-success-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.daftar-benefits {
+  padding: 24px;
+  border: 1.5px solid var(--navy-900);
+  border-radius: var(--radius-card);
+  background: var(--navy-900);
+  color: var(--cream);
+}
+
+.daftar-benefits h2 {
+  margin-bottom: 16px;
+  color: var(--yellow-400);
+  font-size: 1.3rem;
+}
+
+.benefit-list {
+  display: grid;
+  gap: 14px;
+}
+
+.benefit-list li {
+  display: grid;
+  gap: 2px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(250, 246, 236, .2);
+}
+
+.benefit-list li:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.benefit-list strong {
+  color: var(--cream);
+}
+
+.benefit-list span {
+  color: rgba(250, 246, 236, .75);
+  font-size: .88rem;
+}
+
+.daftar-benefits .demo-label {
+  margin-top: 18px;
+  color: rgba(250, 246, 236, .6);
+}
+
+@media (min-width: 900px) {
+  .daftar-layout {
+    grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+    gap: 40px;
+    align-items: start;
+  }
+
+  .lead-form,
+  .form-success {
+    padding: 32px;
+  }
+
+  .daftar-benefits {
+    position: sticky;
+    top: 96px;
+    padding: 28px;
+  }
+}
+
+/* --------------------------------------------------------------------------
    Footer
    -------------------------------------------------------------------------- */
 .site-footer {
