@@ -1,0 +1,8 @@
+dist/
+.netlify/
+node_modules/
+*.log
+
+# Tooling workspace, not part of the site
+.superpowers/
+PR_BODY.md

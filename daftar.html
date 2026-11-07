@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daftar Kelas Percobaan — Cendekia Lingua</title>
+  <meta name="description" content="Ambil kelas percobaan gratis Cendekia Lingua. Isi formulir demo dan tim kami akan menghubungi lewat WhatsApp.">
+  <meta name="theme-color" content="#0B2239">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Langsung ke konten</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-mark" aria-hidden="true">CL</span>
+        <span class="logo-word">Cendekia Lingua</span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="Navigasi utama">
+        <ul class="nav-list">
+          <li><a href="program.html">Program</a></li>
+          <li><a href="index.html#pengajar">Pengajar</a></li>
+          <li><a href="index.html#testimoni">Testimoni</a></li>
+          <li><a href="daftar.html" aria-current="page">Cara Daftar</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a class="btn btn-primary nav-cta" href="daftar.html">Kelas gratis</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero" aria-labelledby="daftar-title">
+      <div class="container">
+        <p class="eyebrow">Kelas percobaan gratis</p>
+        <h1 id="daftar-title">Daftar kelas percobaan</h1>
+        <p class="page-lead">Isi formulir di bawah. Tim Cendekia Lingua akan menghubungi lewat WhatsApp untuk mengonfirmasi program, level, dan jadwal. Gratis, tanpa kewajiban lanjut.</p>
+      </div>
+    </section>
+
+    <section class="section section--tight" aria-labelledby="form-title">
+      <div class="container daftar-layout">
+        <div class="daftar-form-col">
+          <h2 class="sr-only" id="form-title">Formulir pendaftaran</h2>
+
+          <p class="program-note" data-program-note hidden>Kamu memilih <strong data-program-name></strong>. Bahasa dan jadwal sudah disesuaikan — kamu masih bisa mengubahnya di bawah.</p>
+
+          <form class="lead-form" data-lead-form novalidate>
+            <div class="field">
+              <label for="name">Nama lengkap <span class="req" aria-hidden="true">*</span></label>
+              <input id="name" name="name" type="text" autocomplete="name" required aria-describedby="error-name">
+              <p class="field-error" id="error-name" data-error-for="name" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="whatsapp">Nomor WhatsApp <span class="req" aria-hidden="true">*</span></label>
+              <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="08xx xxxx xxxx" required aria-describedby="error-whatsapp">
+              <p class="field-error" id="error-whatsapp" data-error-for="whatsapp" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="email">Email <span class="field-optional">(opsional)</span></label>
+              <input id="email" name="email" type="email" autocomplete="email" aria-describedby="error-email">
+              <p class="field-error" id="error-email" data-error-for="email" hidden></p>
+            </div>
+
+            <fieldset class="field">
+              <legend>Kamu siapa? <span class="req" aria-hidden="true">*</span></legend>
+              <div class="choice-row">
+                <label class="choice" for="audience-sma"><input id="audience-sma" type="radio" name="audience" value="sma" required aria-describedby="error-audience"> SMA</label>
+                <label class="choice" for="audience-mahasiswa"><input id="audience-mahasiswa" type="radio" name="audience" value="mahasiswa" required aria-describedby="error-audience"> Mahasiswa</label>
+                <label class="choice" for="audience-pekerja"><input id="audience-pekerja" type="radio" name="audience" value="pekerja" required aria-describedby="error-audience"> Pekerja</label>
+              </div>
+              <p class="field-error" id="error-audience" data-error-for="audience" hidden></p>
+            </fieldset>
+
+            <fieldset class="field">
+              <legend>Bahasa yang ingin dipelajari <span class="req" aria-hidden="true">*</span></legend>
+              <div class="choice-row">
+                <label class="choice" for="language-inggris"><input id="language-inggris" type="radio" name="language" value="inggris" required aria-describedby="error-language"> Inggris</label>
+                <label class="choice" for="language-jepang"><input id="language-jepang" type="radio" name="language" value="jepang" required aria-describedby="error-language"> Jepang</label>
+                <label class="choice" for="language-mandarin"><input id="language-mandarin" type="radio" name="language" value="mandarin" required aria-describedby="error-language"> Mandarin</label>
+              </div>
+              <p class="field-error" id="error-language" data-error-for="language" hidden></p>
+            </fieldset>
+
+            <div class="field">
+              <label for="level">Level <span class="req" aria-hidden="true">*</span></label>
+              <select id="level" name="level" required aria-describedby="error-level">
+                <option value="">Pilih level</option>
+                <option value="pemula">Pemula</option>
+                <option value="pernah-belajar">Pernah belajar</option>
+                <option value="menengah">Menengah</option>
+              </select>
+              <p class="field-error" id="error-level" data-error-for="level" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="schedule">Jadwal favorit <span class="req" aria-hidden="true">*</span></label>
+              <select id="schedule" name="schedule" required aria-describedby="error-schedule">
+                <option value="">Pilih jadwal</option>
+                <option value="weekday-sore">Weekday sore (16.00–18.00)</option>
+                <option value="weekday-malam">Weekday malam (18.30–20.30)</option>
+                <option value="sabtu">Sabtu (09.00–15.30)</option>
+                <option value="online">Online</option>
+              </select>
+              <p class="field-hint">Bucket ini dipetakan ke slot konkret; admin mengonfirmasi slot saat menghubungi.</p>
+              <p class="field-error" id="error-schedule" data-error-for="schedule" hidden></p>
+            </div>
+
+            <div class="field">
+              <label for="goal">Tujuan belajar <span class="field-optional">(opsional)</span></label>
+              <textarea id="goal" name="goal" maxlength="300" aria-describedby="goal-hint error-goal" placeholder="Misalnya: lancar presentasi kerja, siap JLPT N5, atau percaya diri ngobrol."></textarea>
+              <p class="field-hint" id="goal-hint">Maksimal 300 karakter.</p>
+              <p class="field-error" id="error-goal" data-error-for="goal" hidden></p>
+            </div>
+
+            <div class="field">
+              <label class="choice choice--consent" for="consent"><input id="consent" type="checkbox" name="consent" required aria-describedby="error-consent"> Saya setuju dihubungi via WhatsApp <span class="req" aria-hidden="true">*</span></label>
+              <p class="field-error" id="error-consent" data-error-for="consent" hidden></p>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn btn-primary" type="button" data-submit>Kirim pendaftaran</button>
+              <p class="form-note">Mode demo — data tidak dikirim ke server.</p>
+              <noscript><p class="form-note">Form ini memerlukan JavaScript untuk validasi dan mode demo. Tanpa JavaScript, tidak ada data yang dikirim.</p></noscript>
+            </div>
+          </form>
+
+          <section class="form-success" data-form-success aria-live="polite" aria-labelledby="success-title" hidden>
+            <p class="eyebrow">Pendaftaran diterima (demo)</p>
+            <h2 id="success-title" tabindex="-1">Terima kasih, <span data-summary="name"></span>!</h2>
+            <p>Ini tampilan demo. Di situs nyata, admin akan menghubungi kamu lewat WhatsApp maksimal satu hari kerja.</p>
+            <dl class="summary-list">
+              <div><dt>Nama</dt><dd data-summary="name"></dd></div>
+              <div><dt>WhatsApp</dt><dd data-summary="whatsapp"></dd></div>
+              <div><dt>Kamu siapa</dt><dd data-summary="audience"></dd></div>
+              <div><dt>Bahasa</dt><dd data-summary="language"></dd></div>
+              <div><dt>Level</dt><dd data-summary="level"></dd></div>
+              <div><dt>Jadwal favorit</dt><dd data-summary="schedule"></dd></div>
+            </dl>
+            <p class="demo-note">Mode demo, data tidak dikirim. Nomor WhatsApp di dialog juga fiktif.</p>
+            <div class="form-success-actions">
+              <button class="btn btn-whatsapp" type="button" data-dialog-open="whatsapp">WhatsApp demo</button>
+              <a class="btn btn-secondary" href="index.html">Kembali ke beranda</a>
+            </div>
+          </section>
+        </div>
+
+        <aside class="daftar-benefits" aria-labelledby="benefits-title">
+          <h2 id="benefits-title">Yang kamu dapat</h2>
+          <ul class="benefit-list">
+            <li><strong>Kelas percobaan 60 menit</strong><span>Gratis, tanpa biaya pendaftaran.</span></li>
+            <li><strong>Placement test singkat</strong><span>Kami bantu temukan level yang pas.</span></li>
+            <li><strong>Kelas maksimal 8 siswa</strong><span>Lebih banyak giliran bicara.</span></li>
+            <li><strong>Jadwal sore, Sabtu, atau online</strong><span>Disesuaikan dengan rutinitasmu.</span></li>
+          </ul>
+          <p class="demo-label">Data demo — alamat, nomor, dan jadwal fiktif.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">
+          <span class="logo-mark" aria-hidden="true">CL</span>
+          <span class="logo-word">Cendekia Lingua</span>
+        </a>
+        <p>Kursus bahasa Inggris, Jepang, dan Mandarin di Yogyakarta untuk pelajar SMA, mahasiswa, dan pekerja muda.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Navigasi footer">
+        <h2 class="footer-heading">Jelajahi</h2>
+        <ul>
+          <li><a href="program.html">Program</a></li>
+          <li><a href="daftar.html">Daftar kelas percobaan</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="wireframe.html">Wireframe</a></li>
+          <li><a href="style-guide.html">Style guide</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <h2 class="footer-heading">Kontak</h2>
+        <address>
+          Jl. Kaliurang Km. 5, Sleman, Yogyakarta (demo)<br>
+          Senin–Jumat 10.00–20.00; Sabtu 09.00–15.00<br>
+          <a href="mailto:halo@cendekialingua.demo">halo@cendekialingua.demo</a>
+        </address>
+        <button type="button" class="btn btn-whatsapp" data-dialog-open="whatsapp">WhatsApp demo</button>
+      </div>
+      <div class="footer-social">
+        <h2 class="footer-heading">Sosial</h2>
+        <p>Instagram · TikTok · YouTube</p>
+        <p>Demo — tautan belum aktif.</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>Situs demo. Nama, harga, jadwal, dan testimoni fiktif.</p>
+      <p>© 2026 Cendekia Lingua.</p>
+    </div>
+  </footer>
+
+  <dialog data-dialog="whatsapp" aria-labelledby="whatsapp-title">
+    <div class="dialog-inner">
+      <h2 id="whatsapp-title">WhatsApp demo</h2>
+      <p>Nomor <strong>6281200001234</strong> adalah nomor fiktif. Tombol ini tidak membuka WhatsApp sungguhan dan tidak mengirim pesan.</p>
+      <p>Di situs nyata, tombol ini akan menghubungkan calon siswa dengan admin Cendekia Lingua.</p>
+      <button type="button" class="btn btn-primary" data-dialog-close>Tutup</button>
+    </div>
+  </dialog>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,559 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Style Guide — Cendekia Lingua</title>
+  <meta name="description" content="Panduan warna, tipografi, tombol, form, komponen, dan aksesibilitas Cendekia Lingua.">
+  <meta name="theme-color" content="#0B2239">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Langsung ke konten</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-mark" aria-hidden="true">CL</span>
+        <span class="logo-word">Cendekia Lingua</span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="Navigasi utama">
+        <ul class="nav-list">
+          <li><a href="program.html">Program</a></li>
+          <li><a href="index.html#pengajar">Pengajar</a></li>
+          <li><a href="index.html#testimoni">Testimoni</a></li>
+          <li><a href="daftar.html">Cara Daftar</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a class="btn btn-primary nav-cta" href="daftar.html">Kelas gratis</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="sg-page">
+    <section class="sg-hero" aria-labelledby="sg-title">
+      <div class="container">
+        <p class="eyebrow">Dokumen desain</p>
+        <h1 id="sg-title">Style guide</h1>
+        <p class="sg-lead">Referensi visual Cendekia Lingua. Semua contoh di halaman ini memakai class CSS yang sama dengan situs live, jadi tampilan di sini adalah tampilan sebenarnya — bukan design system terpisah.</p>
+        <nav class="sg-toc" aria-label="Daftar bagian style guide">
+          <a href="#logo">Logo</a>
+          <a href="#warna">Warna</a>
+          <a href="#tipografi">Tipografi</a>
+          <a href="#tombol">Tombol</a>
+          <a href="#form">Form</a>
+          <a href="#komponen">Komponen</a>
+          <a href="#spacing">Spacing</a>
+          <a href="#radius">Radius &amp; shadow</a>
+          <a href="#do-dont">Do &amp; don't</a>
+          <a href="#aksesibilitas">Aksesibilitas</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="sg-section" id="logo" data-sg-section="logo" aria-labelledby="logo-title">
+      <div class="container">
+        <div class="sg-section-head">
+          <p class="eyebrow">01 · Identitas</p>
+          <h2 id="logo-title">Logo</h2>
+          <p>Mark “CL” sementara karena file logo klien belum tersedia. Mark boleh berdiri sendiri untuk favicon; wordmark dipakai saat ruang cukup.</p>
+        </div>
+        <div class="sg-logo-panels">
+          <div class="sg-logo-panel">
+            <a class="logo" href="index.html">
+              <span class="logo-mark" aria-hidden="true">CL</span>
+              <span class="logo-word">Cendekia Lingua</span>
+            </a>
+            <p class="sg-logo-caption">Di latar terang — mark kuning, border navy, wordmark navy.</p>
+          </div>
+          <div class="sg-logo-panel sg-logo-panel--dark">
+            <a class="logo" href="index.html">
+              <span class="logo-mark" aria-hidden="true">CL</span>
+              <span class="logo-word">Cendekia Lingua</span>
+            </a>
+            <p class="sg-logo-caption">Di latar navy — wordmark cream agar kontras tetap tinggi.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-section" id="warna" data-sg-section="warna" aria-labelledby="warna-title">
+      <div class="container">
+        <div class="sg-section-head">
+          <p class="eyebrow">02 · Warna</p>
+          <h2 id="warna-title">Palet</h2>
+          <p>Navy untuk struktur dan teks, kuning untuk aksi utama, cream untuk latar hangat. Rasio kontras di bawah dihitung dengan rumus WCAG 2.2, bukan perkiraan.</p>
+        </div>
+        <ul class="sg-swatches">
+          <li class="sg-swatch" data-swatch="navy-900">
+            <div class="sg-swatch-chip" style="--swatch: #0B2239; --on-swatch: #FFFFFF"><span>Aa</span></div>
+            <div class="sg-swatch-body">
+              <p class="sg-swatch-name">Navy 900</p>
+              <code>#0B2239</code>
+              <p class="sg-ratio">16.13:1</p>
+              <p class="sg-usage">Teks putih di atasnya. Warna utama header, footer, dan heading.</p>
+            </div>
+          </li>
+          <li class="sg-swatch" data-swatch="navy-700">
+            <div class="sg-swatch-chip" style="--swatch: #123A5C; --on-swatch: #FFFFFF"><span>Aa</span></div>
+            <div class="sg-swatch-body">
+              <p class="sg-swatch-name">Navy 700</p>
+              <code>#123A5C</code>
+              <p class="sg-ratio">11.76:1</p>
+              <p class="sg-usage">Teks putih di atasnya. Link dan aksen navy yang lebih lembut.</p>
+            </div>
+          </li>
+          <li class="sg-swatch" data-swatch="yellow-400">
+            <div class="sg-swatch-chip" style="--swatch: #F6C445; --on-swatch: #0B2239"><span>Aa</span></div>
+            <div class="sg-swatch-body">
+              <p class="sg-swatch-name">Yellow 400</p>
+              <code>#F6C445</code>
+              <p class="sg-ratio">9.91:1</p>
+              <p class="sg-usage">Dengan navy 900. CTA utama dan highlight; jangan dipakai sebagai teks di atas putih.</p>
+            </div>
+          </li>
+          <li class="sg-swatch" data-swatch="yellow-100">
+            <div class="sg-swatch-chip" style="--swatch: #FFF1C9; --on-swatch: #0B2239"><span>Aa</span></div>
+            <div class="sg-swatch-body">
+              <p class="sg-swatch-name">Yellow 100</p>
+              <code>#FFF1C9</code>
+              <p class="sg-ratio">14.34:1</p>
+              <p class="sg-usage">Dengan navy 900. Latar hover, ring fokus, dan panel lembut.</p>
+            </div>
+          </li>
+          <li class="sg-swatch" data-swatch="cream">
+            <div class="sg-swatch-chip" style="--swatch: #FAF6EC; --on-swatch: #0B2239"><span>Aa</span></div>
+            <div class="sg-swatch-body">
+              <p class="sg-swatch-name">Cream</p>
+              <code>#FAF6EC</code>
+              <p class="sg-ratio">14.94:1</p>
+              <p class="sg-usage">Dengan navy 900. Latar utama halaman, lebih hangat dari putih.</p>
+            </div>
+          </li>
+          <li class="sg-swatch" data-swatch="white">
+            <div class="sg-swatch-chip" style="--swatch: #FFFFFF; --on-swatch: #0B2239"><span>Aa</span></div>
+            <div class="sg-swatch-body">
+              <p class="sg-swatch-name">White</p>
+              <code>#FFFFFF</code>
+              <p class="sg-ratio">16.13:1</p>
+              <p class="sg-usage">Dengan navy 900. Kartu, input, dan panel di atas cream.</p>
+            </div>
+          </li>
+          <li class="sg-swatch" data-swatch="ink">
+            <div class="sg-swatch-chip" style="--swatch: #16202B; --on-swatch: #FAF6EC"><span>Aa</span></div>
+            <div class="sg-swatch-body">
+              <p class="sg-swatch-name">Ink</p>
+              <code>#16202B</code>
+              <p class="sg-ratio">15.25:1</p>
+              <p class="sg-usage">Di atas cream. Warna body text; sedikit lebih lunak dari navy.</p>
+            </div>
+          </li>
+          <li class="sg-swatch" data-swatch="muted">
+            <div class="sg-swatch-chip" style="--swatch: #5C6B7A; --on-swatch: #FAF6EC"><span>Aa</span></div>
+            <div class="sg-swatch-body">
+              <p class="sg-swatch-name">Muted</p>
+              <code>#5C6B7A</code>
+              <p class="sg-ratio">5.07:1</p>
+              <p class="sg-usage">Di atas cream. Teks sekunder, metadata, dan border field form.</p>
+            </div>
+          </li>
+          <li class="sg-swatch" data-swatch="line">
+            <div class="sg-swatch-chip" style="--swatch: #D8D2C4; --on-swatch: #FFFFFF"><span>Aa</span></div>
+            <div class="sg-swatch-body">
+              <p class="sg-swatch-name">Line</p>
+              <code>#D8D2C4</code>
+              <p class="sg-ratio">1.51:1</p>
+              <p class="sg-usage">Dengan putih. Hanya untuk border dekoratif, bukan teks atau ikon penting.</p>
+            </div>
+          </li>
+          <li class="sg-swatch" data-swatch="success">
+            <div class="sg-swatch-chip" style="--swatch: #1F7A5C; --on-swatch: #FFFFFF"><span>Aa</span></div>
+            <div class="sg-swatch-body">
+              <p class="sg-swatch-name">Success</p>
+              <code>#1F7A5C</code>
+              <p class="sg-ratio">5.25:1</p>
+              <p class="sg-usage">Dengan putih. Tombol WhatsApp dan status berhasil.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sg-section" id="tipografi" data-sg-section="tipografi" aria-labelledby="tipografi-title">
+      <div class="container">
+        <div class="sg-section-head">
+          <p class="eyebrow">03 · Tipografi</p>
+          <h2 id="tipografi-title">Skala tipe</h2>
+          <p>Bricolage Grotesque untuk heading agar terasa ekspresif; Plus Jakarta Sans untuk body agar mudah dibaca. Maksimal tiga bobot per layar.</p>
+        </div>
+
+        <div class="sg-type-row" data-type-sample="h1">
+          <p class="sg-specimen sg-specimen--h1">Berani bicara, siap melangkah.</p>
+          <dl class="sg-type-meta">
+            <div><dt>Font</dt><dd>Bricolage Grotesque 700</dd></div>
+            <div><dt>Ukuran</dt><dd>clamp(36px–64px)</dd></div>
+            <div><dt>Line-height</dt><dd>1.1</dd></div>
+          </dl>
+        </div>
+
+        <div class="sg-type-row" data-type-sample="h2">
+          <p class="sg-specimen sg-specimen--h2">Program sesuai tujuanmu.</p>
+          <dl class="sg-type-meta">
+            <div><dt>Font</dt><dd>Bricolage Grotesque 700</dd></div>
+            <div><dt>Ukuran</dt><dd>clamp(28px–40px)</dd></div>
+            <div><dt>Line-height</dt><dd>1.1</dd></div>
+          </dl>
+        </div>
+
+        <div class="sg-type-row" data-type-sample="h3">
+          <p class="sg-specimen sg-specimen--h3">English for Teens</p>
+          <dl class="sg-type-meta">
+            <div><dt>Font</dt><dd>Bricolage Grotesque 700</dd></div>
+            <div><dt>Ukuran</dt><dd>clamp(20px–24px)</dd></div>
+            <div><dt>Line-height</dt><dd>1.1</dd></div>
+          </dl>
+        </div>
+
+        <div class="sg-type-row" data-type-sample="body">
+          <p class="sg-specimen sg-specimen--body">Kelas kecil, pengajar berpengalaman, dan jadwal yang cocok dengan rutinitasmu. Coba satu kelas gratis sebelum memutuskan.</p>
+          <dl class="sg-type-meta">
+            <div><dt>Font</dt><dd>Plus Jakarta Sans 400</dd></div>
+            <div><dt>Ukuran</dt><dd>16px</dd></div>
+            <div><dt>Line-height</dt><dd>1.65</dd></div>
+          </dl>
+        </div>
+
+        <div class="sg-type-row" data-type-sample="small">
+          <p class="sg-specimen sg-specimen--small">Situs demo. Nama, harga, jadwal, dan testimoni fiktif.</p>
+          <dl class="sg-type-meta">
+            <div><dt>Font</dt><dd>Plus Jakarta Sans 500</dd></div>
+            <div><dt>Ukuran</dt><dd>13px</dd></div>
+            <div><dt>Line-height</dt><dd>1.5</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-section" id="tombol" data-sg-section="tombol" aria-labelledby="tombol-title">
+      <div class="container">
+        <div class="sg-section-head">
+          <p class="eyebrow">04 · Tombol</p>
+          <h2 id="tombol-title">Tombol &amp; state</h2>
+          <p>Satu aksi utama per area. Tinggi minimum 44 px, label memakai kata kerja, dan state fokus tidak boleh dihapus.</p>
+        </div>
+        <div class="sg-demo-grid">
+          <div class="sg-demo">
+            <span class="sg-demo-label">Primary</span>
+            <a class="btn btn-primary" href="daftar.html">Coba kelas gratis</a>
+            <p class="sg-note">Aksi utama halaman. Kuning + shadow navy.</p>
+          </div>
+          <div class="sg-demo">
+            <span class="sg-demo-label">Secondary</span>
+            <a class="btn btn-secondary" href="program.html">Lihat program</a>
+            <p class="sg-note">Aksi pendamping, tidak bersaing dengan primary.</p>
+          </div>
+          <div class="sg-demo">
+            <span class="sg-demo-label">WhatsApp</span>
+            <button type="button" class="btn btn-whatsapp" data-dialog-open="whatsapp">WhatsApp demo</button>
+            <p class="sg-note">Hijau success; membuka dialog demo, bukan WhatsApp asli.</p>
+          </div>
+          <div class="sg-demo">
+            <span class="sg-demo-label">Disabled</span>
+            <button type="button" class="btn btn-primary" disabled>Belum tersedia</button>
+            <p class="sg-note">Opacity 55%, kursor not-allowed, shadow dihilangkan.</p>
+          </div>
+          <div class="sg-demo">
+            <span class="sg-demo-label">Focus</span>
+            <button type="button" class="btn btn-primary" data-focus-demo>Fokus keyboard</button>
+            <p class="sg-note">Ring navy 3 px dengan offset 3 px. Selalu terlihat saat Tab.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-section" id="form" data-sg-section="form" aria-labelledby="form-title">
+      <div class="container">
+        <div class="sg-section-head">
+          <p class="eyebrow">05 · Form</p>
+          <h2 id="form-title">State form</h2>
+          <p>Label selalu terlihat, error ditulis di bawah field, dan status sukses tidak menghapus ringkasan data. Contoh error memakai `aria-invalid` dan `aria-describedby` seperti form asli.</p>
+        </div>
+        <div class="sg-demo-grid">
+          <div class="sg-demo" data-form-state="default">
+            <span class="sg-demo-label">Default</span>
+            <div class="field">
+              <label for="sg-name">Nama lengkap</label>
+              <input id="sg-name" name="sg-name" type="text" placeholder="Nama kamu">
+            </div>
+            <p class="sg-note">Border line 1.5 px, radius 12 px, tinggi 44 px.</p>
+          </div>
+
+          <div class="sg-demo" data-form-state="focus">
+            <span class="sg-demo-label">Focus</span>
+            <div class="field">
+              <label for="sg-focus">Nomor WhatsApp</label>
+              <input class="sg-input-focus" id="sg-focus" name="sg-focus" type="tel" value="0812 0000 1234">
+            </div>
+            <p class="sg-note">Border navy + ring kuning muda 3 px.</p>
+          </div>
+
+          <div class="sg-demo" data-form-state="error">
+            <span class="sg-demo-label">Error</span>
+            <div class="field">
+              <label for="sg-error">Nomor WhatsApp</label>
+              <input id="sg-error" name="sg-error" type="tel" value="123" aria-invalid="true" aria-describedby="error-demo">
+              <p class="field-error" id="error-demo" data-error-for="demo">Masukkan nomor WhatsApp Indonesia yang valid (08… atau 628…).</p>
+            </div>
+            <p class="sg-note">Border merah, pesan spesifik, fokus pindah ke field pertama yang salah.</p>
+          </div>
+
+          <div class="sg-demo" data-form-state="success">
+            <span class="sg-demo-label">Success</span>
+            <div class="sg-success-demo" data-form-success>
+              <strong>Pendaftaran diterima (demo)</strong>
+              <span>Terima kasih, Nadia! Admin akan menghubungi lewat WhatsApp.</span>
+              <span>Mode demo, data tidak dikirim.</span>
+            </div>
+            <p class="sg-note">Panel menggantikan form, fokus pindah ke judul, ringkasan tetap terlihat.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-section" id="komponen" data-sg-section="komponen" aria-labelledby="komponen-title">
+      <div class="container">
+        <div class="sg-section-head">
+          <p class="eyebrow">06 · Komponen</p>
+          <h2 id="komponen-title">Komponen live</h2>
+          <p>Contoh di bawah dirender dengan markup dan class yang sama seperti homepage dan halaman program.</p>
+        </div>
+        <div class="sg-component-grid">
+          <div class="sg-component" data-component="lang-badge">
+            <span class="sg-demo-label">Language badge</span>
+            <div class="sg-inline-row">
+              <span class="lang-badge lang-badge--inggris"><span class="lang-dot" aria-hidden="true"></span>Inggris</span>
+              <span class="lang-badge lang-badge--jepang"><span class="lang-dot" aria-hidden="true"></span>Jepang</span>
+              <span class="lang-badge lang-badge--mandarin"><span class="lang-dot" aria-hidden="true"></span>Mandarin</span>
+            </div>
+            <p class="sg-note">Titik warna bahasa + label teks. Jangan hanya mengandalkan warna.</p>
+          </div>
+
+          <div class="sg-component sg-component--wide" data-component="program-card">
+            <span class="sg-demo-label">Program card</span>
+            <article class="program-card">
+              <div class="program-card-top">
+                <span class="lang-badge lang-badge--inggris"><span class="lang-dot" aria-hidden="true"></span>Inggris</span>
+                <span class="program-price">Rp 850.000 / modul</span>
+              </div>
+              <h3>English for Teens</h3>
+              <p class="program-meta">Target: SMA · Level: Beginner–Intermediate</p>
+              <dl class="program-facts">
+                <div><dt>Durasi</dt><dd>12 sesi × 90 mnt</dd></div>
+                <div><dt>Jadwal</dt><dd>Selasa &amp; Kamis 16.00–17.30</dd></div>
+              </dl>
+              <a class="btn btn-primary" href="daftar.html?program=english-teens">Ambil kelas percobaan</a>
+            </article>
+            <p class="sg-note">Badge, harga, target, jadwal, lalu satu CTA. Hierarki tidak boleh dibalik.</p>
+          </div>
+
+          <div class="sg-component" data-component="teacher-card">
+            <span class="sg-demo-label">Teacher card</span>
+            <article class="teacher-card">
+              <span class="teacher-avatar" aria-hidden="true">AP</span>
+              <h3>Ayu Prameswari</h3>
+              <p class="teacher-lang">Inggris</p>
+              <p class="teacher-credential">S.Pd., 8 tahun mengajar, fokus speaking untuk remaja.</p>
+              <p class="teacher-note">“Berani salah dulu, benar belakangan.”</p>
+            </article>
+            <p class="sg-note">Avatar inisial, bukan foto stok. Kredensial singkat dan spesifik.</p>
+          </div>
+
+          <div class="sg-component" data-component="testimonial">
+            <span class="sg-demo-label">Testimonial</span>
+            <blockquote class="testimonial testimonial--lead">
+              <p>“Dulu aku takut salah grammar. Sekarang berani jadi moderator presentasi kelas.”</p>
+              <footer><strong>Nadia</strong> · SMA kelas 11 · English for Teens</footer>
+            </blockquote>
+            <p class="sg-note">Kutipan spesifik, atribusi jelas, dan label “Testimoni demo”.</p>
+          </div>
+
+          <div class="sg-component" data-component="accordion">
+            <span class="sg-demo-label">Accordion</span>
+            <details class="faq-item" open>
+              <summary>Benar-benar gratis?</summary>
+              <p>Kelas percobaan 60 menit gratis, tanpa biaya pendaftaran dan tanpa kewajiban lanjut.</p>
+            </details>
+            <p class="sg-note">Memakai <code>&lt;details&gt;</code> agar tetap bisa dibuka tanpa JavaScript.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-section" id="spacing" data-sg-section="spacing" aria-labelledby="spacing-title">
+      <div class="container">
+        <div class="sg-section-head">
+          <p class="eyebrow">07 · Spacing</p>
+          <h2 id="spacing-title">Skala jarak</h2>
+          <p>Semua jarak kelipatan 4 px. Pakai token terdekat, jangan angka acak seperti 13 px atau 27 px.</p>
+        </div>
+        <ul class="sg-space-list">
+          <li class="sg-space" data-space="4"><span class="sg-space-bar" style="--space: 4px"></span><code>4 px</code><span class="sg-space-use">Ikon &amp; label</span></li>
+          <li class="sg-space" data-space="8"><span class="sg-space-bar" style="--space: 8px"></span><code>8 px</code><span class="sg-space-use">Gap kecil</span></li>
+          <li class="sg-space" data-space="12"><span class="sg-space-bar" style="--space: 12px"></span><code>12 px</code><span class="sg-space-use">Dalam kartu</span></li>
+          <li class="sg-space" data-space="16"><span class="sg-space-bar" style="--space: 16px"></span><code>16 px</code><span class="sg-space-use">Antar elemen</span></li>
+          <li class="sg-space" data-space="24"><span class="sg-space-bar" style="--space: 24px"></span><code>24 px</code><span class="sg-space-use">Padding kartu</span></li>
+          <li class="sg-space" data-space="32"><span class="sg-space-bar" style="--space: 32px"></span><code>32 px</code><span class="sg-space-use">Antar blok</span></li>
+          <li class="sg-space" data-space="48"><span class="sg-space-bar" style="--space: 48px"></span><code>48 px</code><span class="sg-space-use">Padding section mobile</span></li>
+          <li class="sg-space" data-space="64"><span class="sg-space-bar" style="--space: 64px"></span><code>64 px</code><span class="sg-space-use">Padding section desktop</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sg-section" id="radius" data-sg-section="radius" aria-labelledby="radius-title">
+      <div class="container">
+        <div class="sg-section-head">
+          <p class="eyebrow">08 · Radius, shadow, ikon</p>
+          <h2 id="radius-title">Bentuk &amp; elevasi</h2>
+          <p>Sudut membulat konsisten: 12 px untuk input, 18 px untuk kartu, dan pill untuk tombol. Shadow hanya untuk memisahkan kartu dari cream.</p>
+        </div>
+        <div class="sg-radius-grid">
+          <div class="sg-radius-card sg-radius-card--input"><code>--radius-input</code><span>12 px</span></div>
+          <div class="sg-radius-card sg-radius-card--card"><code>--radius-card</code><span>18 px</span></div>
+          <div class="sg-radius-card sg-radius-card--pill"><code>--radius-pill</code><span>999 px</span></div>
+          <div class="sg-shadow-card"><code>--shadow-soft</code><span>0 10px 30px rgba(11, 34, 57, .08)</span></div>
+        </div>
+        <div class="sg-icons" aria-label="Contoh ikon garis">
+          <span class="sg-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H8l-4 4V5Z"/></svg></span>
+          <span class="sg-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 6h16v14H4zM8 3v5M16 3v5M4 11h16"/></svg></span>
+          <span class="sg-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span>
+          <p class="sg-note">Ikon garis 24 px, stroke 1.8, selalu disertai label teks atau <code>aria-label</code>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-section" id="do-dont" data-sg-section="do-dont" aria-labelledby="do-dont-title">
+      <div class="container">
+        <div class="sg-section-head">
+          <p class="eyebrow">09 · Do &amp; don't</p>
+          <h2 id="do-dont-title">Aturan praktis</h2>
+          <p>Tiga keputusan yang paling sering menentukan apakah halaman terasa profesional atau seperti template.</p>
+        </div>
+        <div class="sg-do-dont-list">
+          <div class="sg-do-dont" data-do-dont>
+            <div class="sg-do">
+              <span class="sg-verdict">Lakukan</span>
+              <p>Satu CTA utama per layar. Di hero, “Coba kelas gratis” menonjol; “Lihat program” menjadi secondary.</p>
+            </div>
+            <div class="sg-dont">
+              <span class="sg-verdict">Hindari</span>
+              <p>Dua tombol kuning besar bersaing di area yang sama. Mata tidak tahu mana aksi utama.</p>
+            </div>
+          </div>
+
+          <div class="sg-do-dont" data-do-dont>
+            <div class="sg-do">
+              <span class="sg-verdict">Lakukan</span>
+              <p>Teks navy atau ink di atas cream/putih. Kontras body minimal 4.5:1.</p>
+            </div>
+            <div class="sg-dont">
+              <span class="sg-verdict">Hindari</span>
+              <p>Teks kuning di atas putih. Rasio hanya 1.63:1 dan gagal WCAG.</p>
+            </div>
+          </div>
+
+          <div class="sg-do-dont" data-do-dont>
+            <div class="sg-do">
+              <span class="sg-verdict">Lakukan</span>
+              <p>Kalimat pendek, kata kerja aktif, dan label form yang jelas. Contoh: “Isi formulir”, “Dihubungi admin”.</p>
+            </div>
+            <div class="sg-dont">
+              <span class="sg-verdict">Hindari</span>
+              <p>Jargon dan HURUF KAPITAL SEMUA. Sulit dibaca dan terasa seperti pengumuman darurat.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-section" id="aksesibilitas" data-sg-section="aksesibilitas" aria-labelledby="aksesibilitas-title">
+      <div class="container">
+        <div class="sg-section-head">
+          <p class="eyebrow">10 · Aksesibilitas</p>
+          <h2 id="aksesibilitas-title">Target &amp; catatan kontras</h2>
+          <p>Target WCAG 2.2 AA. Kontras teks normal minimal 4.5:1; teks besar dan komponen UI minimal 3:1.</p>
+        </div>
+        <ul class="sg-check-list">
+          <li>Kontras body: ink di cream 15.25:1, muted di cream 5.07:1. Keduanya lolos AA.</li>
+          <li>Teks navy di atas yellow-400 9.91:1; teks putih di navy-900 16.13:1.</li>
+          <li>Jangan memakai yellow-400 sebagai teks di atas putih (1.63:1). Itu hanya untuk latar/aksi.</li>
+          <li>Fokus keyboard memakai ring 3 px yang terlihat, bukan `outline: none`.</li>
+          <li>Target sentuh minimal 44 px untuk tombol, chip filter, dan link navigasi mobile.</li>
+          <li>Form: label eksplisit, error `aria-invalid` + `aria-describedby`, fokus pindah ke error pertama.</li>
+          <li>Dialog: fokus masuk, Escape menutup, fokus kembali ke tombol pemicu, latar tidak scroll.</li>
+          <li>Hierarki heading satu h1 per halaman, lalu h2/h3 berurutan tanpa melompat.</li>
+          <li>Animasi reveal dan transisi dimatikan saat `prefers-reduced-motion: reduce`.</li>
+          <li>Arti tidak boleh bergantung pada warna saja; badge bahasa selalu punya label teks.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">
+          <span class="logo-mark" aria-hidden="true">CL</span>
+          <span class="logo-word">Cendekia Lingua</span>
+        </a>
+        <p>Kursus bahasa Inggris, Jepang, dan Mandarin di Yogyakarta untuk pelajar SMA, mahasiswa, dan pekerja muda.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Navigasi footer">
+        <h2 class="footer-heading">Jelajahi</h2>
+        <ul>
+          <li><a href="program.html">Program</a></li>
+          <li><a href="daftar.html">Daftar kelas percobaan</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="wireframe.html">Wireframe</a></li>
+          <li><a href="style-guide.html">Style guide</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <h2 class="footer-heading">Kontak</h2>
+        <address>
+          Jl. Kaliurang Km. 5, Sleman, Yogyakarta (demo)<br>
+          Senin–Jumat 10.00–20.00; Sabtu 09.00–15.00<br>
+          <a href="mailto:halo@cendekialingua.demo">halo@cendekialingua.demo</a>
+        </address>
+        <button type="button" class="btn btn-whatsapp" data-dialog-open="whatsapp">WhatsApp demo</button>
+      </div>
+      <div class="footer-social">
+        <h2 class="footer-heading">Sosial</h2>
+        <p>Instagram · TikTok · YouTube</p>
+        <p>Demo — tautan belum aktif.</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>Situs demo. Nama, harga, jadwal, dan testimoni fiktif.</p>
+      <p>© 2026 Cendekia Lingua.</p>
+    </div>
+  </footer>
+
+  <dialog data-dialog="whatsapp" aria-labelledby="whatsapp-title">
+    <div class="dialog-inner">
+      <h2 id="whatsapp-title">WhatsApp demo</h2>
+      <p>Nomor <strong>6281200001234</strong> adalah nomor fiktif. Tombol ini tidak membuka WhatsApp sungguhan dan tidak mengirim pesan.</p>
+      <p>Di situs nyata, tombol ini akan menghubungkan calon siswa dengan admin Cendekia Lingua.</p>
+      <button type="button" class="btn btn-primary" data-dialog-close>Tutup</button>
+    </div>
+  </dialog>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wireframe Homepage — Cendekia Lingua</title>
+  <meta name="description" content="Wireframe desktop 1440 dan mobile 390 untuk homepage Cendekia Lingua, lengkap dengan anotasi tiap section.">
+  <meta name="theme-color" content="#0B2239">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Langsung ke konten</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-mark" aria-hidden="true">CL</span>
+        <span class="logo-word">Cendekia Lingua</span>
+      </a>
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-label">Menu</span>
+      </button>
+      <nav class="site-nav" id="site-nav" data-nav aria-label="Navigasi utama">
+        <ul class="nav-list">
+          <li><a href="program.html">Program</a></li>
+          <li><a href="index.html#pengajar">Pengajar</a></li>
+          <li><a href="index.html#testimoni">Testimoni</a></li>
+          <li><a href="daftar.html">Cara Daftar</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a class="btn btn-primary nav-cta" href="daftar.html">Kelas gratis</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="wf-page">
+    <section class="wf-intro" data-wireframe-chrome aria-labelledby="wf-title">
+      <div class="container">
+        <p class="eyebrow">Dokumen desain</p>
+        <h1 id="wf-title">Wireframe homepage</h1>
+        <p class="wf-lead">Kerangka homepage Cendekia Lingua untuk desktop 1440 px dan mobile 390 px. Artboard tidak reflow: isinya digambar pada lebar literal, sedangkan galeri yang menyesuaikan diri.</p>
+        <ul class="wf-meta">
+          <li><strong>Fokus:</strong> hierarki konten, CTA kelas percobaan, dan alur scan dari hero sampai kontak.</li>
+          <li><strong>Gaya:</strong> grayscale; warna dan tipografi final dibahas di <a href="style-guide.html">style guide</a>.</li>
+          <li><strong>Skala:</strong> desktop diperkecil ±0,6 saat dua artboard tampil berdampingan; mobile tetap 1:1.</li>
+        </ul>
+        <div class="wf-switch" data-artboard-switch aria-label="Pilih artboard">
+          <button type="button" data-artboard-tab="desktop" aria-pressed="true">Desktop 1440</button>
+          <button type="button" data-artboard-tab="mobile" aria-pressed="false">Mobile 390</button>
+        </div>
+        <p class="wf-hint">Di bawah 1360 px hanya satu artboard tampil. Desktop bisa digeser di dalam frame; body halaman tidak pernah scroll horizontal.</p>
+      </div>
+    </section>
+
+    <section class="wf-gallery" aria-label="Galeri wireframe">
+      <div class="container">
+        <div class="wf-stage" data-wireframe-stage>
+          <div class="wf-frame wf-frame--desktop" data-artboard-frame="desktop" id="wf-desktop">
+            <p class="wf-frame-label">Desktop — 1440 px</p>
+            <div class="wf-scroll">
+              <div class="wf-artboard wf-artboard--desktop" data-artboard="desktop" data-width="1440" role="img" aria-label="Wireframe homepage desktop 1440 piksel">
+                <section class="wf-section wf-section--flush wf-header" data-wf-section="header">
+                  <span class="wf-tag">01 · Header</span>
+                  <div class="wf-row wf-between">
+                    <div class="wf-row wf-gap-10">
+                      <span class="wf-logo-box"></span>
+                      <span class="wf-chip wf-chip--wide"></span>
+                    </div>
+                    <div class="wf-row wf-gap-24">
+                      <span class="wf-chip"></span>
+                      <span class="wf-chip"></span>
+                      <span class="wf-chip"></span>
+                      <span class="wf-chip"></span>
+                      <span class="wf-chip"></span>
+                      <span class="wf-cta wf-cta--sm"></span>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="wf-section" data-wf-section="hero">
+                  <span class="wf-tag">02 · Hero</span>
+                  <div class="wf-hero-grid">
+                    <div class="wf-stack wf-gap-14">
+                      <span class="wf-chip wf-chip--wide"></span>
+                      <span class="wf-line wf-line--xl wf-w-95"></span>
+                      <span class="wf-line wf-line--xl wf-w-70"></span>
+                      <span class="wf-line wf-w-85"></span>
+                      <span class="wf-line wf-w-65"></span>
+                      <div class="wf-row wf-gap-12 wf-mt-10">
+                        <span class="wf-cta"></span>
+                        <span class="wf-cta wf-cta--ghost"></span>
+                      </div>
+                      <div class="wf-row wf-gap-24 wf-mt-10">
+                        <span class="wf-chip"></span>
+                        <span class="wf-chip"></span>
+                      </div>
+                    </div>
+                    <div class="wf-hero-cards">
+                      <div class="wf-card wf-glyph-card wf-glyph-card--en">
+                        <span class="wf-glyph">A</span>
+                        <span class="wf-line wf-w-50"></span>
+                      </div>
+                      <div class="wf-card wf-glyph-card wf-glyph-card--ja">
+                        <span class="wf-glyph">あ</span>
+                        <span class="wf-line wf-w-50"></span>
+                      </div>
+                      <div class="wf-card wf-glyph-card wf-glyph-card--zh">
+                        <span class="wf-glyph">你</span>
+                        <span class="wf-line wf-w-50"></span>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="wf-section wf-section--dark" data-wf-section="stats">
+                  <span class="wf-tag">03 · Stats</span>
+                  <div class="wf-grid-4">
+                    <div class="wf-stack wf-gap-8"><span class="wf-line wf-line--lg wf-w-50"></span><span class="wf-line wf-w-70"></span></div>
+                    <div class="wf-stack wf-gap-8"><span class="wf-line wf-line--lg wf-w-50"></span><span class="wf-line wf-w-70"></span></div>
+                    <div class="wf-stack wf-gap-8"><span class="wf-line wf-line--lg wf-w-50"></span><span class="wf-line wf-w-70"></span></div>
+                    <div class="wf-stack wf-gap-8"><span class="wf-line wf-line--lg wf-w-50"></span><span class="wf-line wf-w-70"></span></div>
+                  </div>
+                </section>
+
+                <section class="wf-section" data-wf-section="tabs">
+                  <span class="wf-tag">04 · Tab audiens + 2 kartu program</span>
+                  <div class="wf-stack wf-gap-16">
+                    <span class="wf-line wf-line--xl wf-w-45"></span>
+                    <span class="wf-line wf-w-65"></span>
+                    <div class="wf-row wf-gap-8">
+                      <span class="wf-tab wf-tab--active"></span>
+                      <span class="wf-tab"></span>
+                      <span class="wf-tab"></span>
+                    </div>
+                    <div class="wf-grid-2">
+                      <div class="wf-card wf-stack wf-gap-10">
+                        <div class="wf-row wf-between"><span class="wf-chip"></span><span class="wf-chip"></span></div>
+                        <span class="wf-line wf-line--lg wf-w-55"></span>
+                        <span class="wf-line wf-w-40"></span>
+                        <div class="wf-fact"><span class="wf-line wf-w-20"></span><span class="wf-line wf-w-40"></span></div>
+                        <div class="wf-fact"><span class="wf-line wf-w-20"></span><span class="wf-line wf-w-45"></span></div>
+                        <span class="wf-cta wf-cta--full"></span>
+                      </div>
+                      <div class="wf-card wf-stack wf-gap-10">
+                        <div class="wf-row wf-between"><span class="wf-chip"></span><span class="wf-chip"></span></div>
+                        <span class="wf-line wf-line--lg wf-w-50"></span>
+                        <span class="wf-line wf-w-45"></span>
+                        <div class="wf-fact"><span class="wf-line wf-w-20"></span><span class="wf-line wf-w-40"></span></div>
+                        <div class="wf-fact"><span class="wf-line wf-w-20"></span><span class="wf-line wf-w-35"></span></div>
+                        <span class="wf-cta wf-cta--full"></span>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="wf-section wf-section--alt" data-wf-section="pricing">
+                  <span class="wf-tag">05 · Jadwal &amp; biaya — 6 baris</span>
+                  <span class="wf-line wf-line--xl wf-w-40"></span>
+                  <div class="wf-table wf-mt-16">
+                    <div class="wf-table-row wf-table-row--head">
+                      <span>Program</span><span>Level</span><span>Jadwal</span><span>Biaya</span>
+                    </div>
+                    <div class="wf-table-row"><span class="wf-chip"></span><span class="wf-chip wf-chip--sm"></span><span class="wf-chip wf-chip--wide"></span><span class="wf-chip wf-chip--sm"></span></div>
+                    <div class="wf-table-row"><span class="wf-chip"></span><span class="wf-chip wf-chip--sm"></span><span class="wf-chip wf-chip--wide"></span><span class="wf-chip wf-chip--sm"></span></div>
+                    <div class="wf-table-row"><span class="wf-chip"></span><span class="wf-chip wf-chip--sm"></span><span class="wf-chip wf-chip--wide"></span><span class="wf-chip wf-chip--sm"></span></div>
+                    <div class="wf-table-row"><span class="wf-chip"></span><span class="wf-chip wf-chip--sm"></span><span class="wf-chip wf-chip--wide"></span><span class="wf-chip wf-chip--sm"></span></div>
+                    <div class="wf-table-row"><span class="wf-chip"></span><span class="wf-chip wf-chip--sm"></span><span class="wf-chip wf-chip--wide"></span><span class="wf-chip wf-chip--sm"></span></div>
+                    <div class="wf-table-row"><span class="wf-chip"></span><span class="wf-chip wf-chip--sm"></span><span class="wf-chip wf-chip--wide"></span><span class="wf-chip wf-chip--sm"></span></div>
+                  </div>
+                </section>
+
+                <section class="wf-section" data-wf-section="why">
+                  <span class="wf-tag">06 · Kenapa Cendekia — 4 alasan</span>
+                  <span class="wf-line wf-line--xl wf-w-40"></span>
+                  <div class="wf-grid-4 wf-mt-16">
+                    <div class="wf-card wf-stack wf-gap-8"><span class="wf-icon"></span><span class="wf-line wf-line--lg wf-w-70"></span><span class="wf-line wf-w-90"></span><span class="wf-line wf-w-60"></span></div>
+                    <div class="wf-card wf-stack wf-gap-8"><span class="wf-icon"></span><span class="wf-line wf-line--lg wf-w-70"></span><span class="wf-line wf-w-90"></span><span class="wf-line wf-w-60"></span></div>
+                    <div class="wf-card wf-stack wf-gap-8"><span class="wf-icon"></span><span class="wf-line wf-line--lg wf-w-70"></span><span class="wf-line wf-w-90"></span><span class="wf-line wf-w-60"></span></div>
+                    <div class="wf-card wf-stack wf-gap-8"><span class="wf-icon"></span><span class="wf-line wf-line--lg wf-w-70"></span><span class="wf-line wf-w-90"></span><span class="wf-line wf-w-60"></span></div>
+                  </div>
+                </section>
+
+                <section class="wf-section wf-section--alt" data-wf-section="teachers">
+                  <span class="wf-tag">07 · Pengajar — 3 kartu</span>
+                  <span class="wf-line wf-line--xl wf-w-45"></span>
+                  <div class="wf-grid-3 wf-mt-16">
+                    <div class="wf-card wf-stack wf-gap-8"><span class="wf-avatar"></span><span class="wf-line wf-line--lg wf-w-60"></span><span class="wf-line wf-w-30"></span><span class="wf-line wf-w-80"></span><span class="wf-line wf-w-65"></span></div>
+                    <div class="wf-card wf-stack wf-gap-8"><span class="wf-avatar"></span><span class="wf-line wf-line--lg wf-w-60"></span><span class="wf-line wf-w-30"></span><span class="wf-line wf-w-80"></span><span class="wf-line wf-w-65"></span></div>
+                    <div class="wf-card wf-stack wf-gap-8"><span class="wf-avatar"></span><span class="wf-line wf-line--lg wf-w-60"></span><span class="wf-line wf-w-30"></span><span class="wf-line wf-w-80"></span><span class="wf-line wf-w-65"></span></div>
+                  </div>
+                </section>
+
+                <section class="wf-section" data-wf-section="testimonials">
+                  <span class="wf-tag">08 · Testimoni — 1 kutipan + 2 kartu</span>
+                  <span class="wf-line wf-line--xl wf-w-45"></span>
+                  <div class="wf-testimonial-grid wf-mt-16">
+                    <div class="wf-card wf-stack wf-gap-10">
+                      <span class="wf-line wf-line--lg wf-w-90"></span>
+                      <span class="wf-line wf-line--lg wf-w-75"></span>
+                      <span class="wf-line wf-w-40"></span>
+                    </div>
+                    <div class="wf-stack wf-gap-12">
+                      <div class="wf-card wf-stack wf-gap-8"><span class="wf-line wf-w-90"></span><span class="wf-line wf-w-70"></span><span class="wf-line wf-w-30"></span></div>
+                      <div class="wf-card wf-stack wf-gap-8"><span class="wf-line wf-w-90"></span><span class="wf-line wf-w-70"></span><span class="wf-line wf-w-30"></span></div>
+                    </div>
+                  </div>
+                  <span class="wf-chip wf-chip--wide wf-mt-16"></span>
+                </section>
+
+                <section class="wf-section wf-section--alt" data-wf-section="steps">
+                  <span class="wf-tag">09 · Cara daftar — 3 langkah</span>
+                  <span class="wf-line wf-line--xl wf-w-40"></span>
+                  <div class="wf-grid-3 wf-mt-16">
+                    <div class="wf-card wf-stack wf-gap-8"><span class="wf-circle">01</span><span class="wf-line wf-line--lg wf-w-60"></span><span class="wf-line wf-w-90"></span><span class="wf-line wf-w-65"></span></div>
+                    <div class="wf-card wf-stack wf-gap-8"><span class="wf-circle">02</span><span class="wf-line wf-line--lg wf-w-60"></span><span class="wf-line wf-w-90"></span><span class="wf-line wf-w-65"></span></div>
+                    <div class="wf-card wf-stack wf-gap-8"><span class="wf-circle">03</span><span class="wf-line wf-line--lg wf-w-60"></span><span class="wf-line wf-w-90"></span><span class="wf-line wf-w-65"></span></div>
+                  </div>
+                  <span class="wf-cta wf-mt-16"></span>
+                </section>
+
+                <section class="wf-section" data-wf-section="faq">
+                  <span class="wf-tag">10 · FAQ — 5 item</span>
+                  <div class="wf-faq-grid">
+                    <div class="wf-stack wf-gap-8">
+                      <span class="wf-line wf-line--xl wf-w-70"></span>
+                      <span class="wf-line wf-w-90"></span>
+                      <span class="wf-line wf-w-55"></span>
+                    </div>
+                    <div class="wf-stack wf-gap-8">
+                      <div class="wf-faq-row"><span class="wf-line wf-w-55"></span><span class="wf-plus"></span></div>
+                      <div class="wf-faq-row"><span class="wf-line wf-w-60"></span><span class="wf-plus"></span></div>
+                      <div class="wf-faq-row"><span class="wf-line wf-w-50"></span><span class="wf-plus"></span></div>
+                      <div class="wf-faq-row"><span class="wf-line wf-w-45"></span><span class="wf-plus"></span></div>
+                      <div class="wf-faq-row"><span class="wf-line wf-w-40"></span><span class="wf-plus"></span></div>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="wf-section wf-section--alt" data-wf-section="contact">
+                  <span class="wf-tag">11 · Kontak + peta demo</span>
+                  <div class="wf-contact-grid">
+                    <div class="wf-stack wf-gap-12">
+                      <span class="wf-line wf-line--xl wf-w-55"></span>
+                      <span class="wf-line wf-w-80"></span>
+                      <span class="wf-line wf-w-70"></span>
+                      <span class="wf-line wf-w-45"></span>
+                      <span class="wf-cta wf-mt-8"></span>
+                    </div>
+                    <div class="wf-map"><span class="wf-map-pin"></span></div>
+                  </div>
+                </section>
+
+                <section class="wf-section wf-section--flush wf-sticky-section" data-wf-section="sticky">
+                  <span class="wf-tag">12 · Sticky CTA — muncul setelah hero (mobile)</span>
+                  <div class="wf-sticky-bar">
+                    <span class="wf-line wf-w-30"></span>
+                    <span class="wf-cta wf-cta--sm"></span>
+                  </div>
+                </section>
+
+                <section class="wf-section wf-section--footer" data-wf-section="footer">
+                  <span class="wf-tag">13 · Footer</span>
+                  <div class="wf-grid-4">
+                    <div class="wf-stack wf-gap-8"><span class="wf-logo-box"></span><span class="wf-line wf-w-70"></span><span class="wf-line wf-w-55"></span></div>
+                    <div class="wf-stack wf-gap-8"><span class="wf-chip"></span><span class="wf-line wf-w-50"></span><span class="wf-line wf-w-45"></span><span class="wf-line wf-w-55"></span><span class="wf-line wf-w-40"></span></div>
+                    <div class="wf-stack wf-gap-8"><span class="wf-chip"></span><span class="wf-line wf-w-80"></span><span class="wf-line wf-w-70"></span><span class="wf-line wf-w-60"></span></div>
+                    <div class="wf-stack wf-gap-8"><span class="wf-chip"></span><span class="wf-line wf-w-60"></span><span class="wf-line wf-w-50"></span></div>
+                  </div>
+                  <div class="wf-row wf-between wf-mt-24"><span class="wf-line wf-w-25"></span><span class="wf-line wf-w-15"></span></div>
+                </section>
+              </div>
+            </div>
+          </div>
+
+          <div class="wf-frame wf-frame--mobile" data-artboard-frame="mobile" id="wf-mobile">
+            <p class="wf-frame-label">Mobile — 390 px</p>
+            <div class="wf-scroll">
+              <div class="wf-artboard wf-artboard--mobile" data-artboard="mobile" data-width="390" role="img" aria-label="Wireframe homepage mobile 390 piksel">
+                <section class="wf-section wf-section--flush wf-header" data-wf-section="header">
+                  <span class="wf-tag">Header</span>
+                  <div class="wf-row wf-between">
+                    <div class="wf-row wf-gap-8"><span class="wf-logo-box wf-logo-box--sm"></span><span class="wf-chip wf-chip--sm"></span></div>
+                    <span class="wf-menu-box"></span>
+                  </div>
+                </section>
+
+                <section class="wf-section" data-wf-section="hero">
+                  <span class="wf-tag">Hero</span>
+                  <div class="wf-stack wf-gap-12">
+                    <span class="wf-chip wf-chip--wide"></span>
+                    <span class="wf-line wf-line--xl wf-w-100"></span>
+                    <span class="wf-line wf-line--xl wf-w-80"></span>
+                    <span class="wf-line wf-w-95"></span>
+                    <span class="wf-line wf-w-80"></span>
+                    <span class="wf-cta wf-cta--full"></span>
+                    <span class="wf-cta wf-cta--ghost wf-cta--full"></span>
+                    <div class="wf-row wf-gap-12 wf-mt-8"><span class="wf-chip"></span><span class="wf-chip"></span></div>
+                    <div class="wf-mobile-langs">
+                      <div class="wf-card wf-glyph-card"><span class="wf-glyph">A</span></div>
+                      <div class="wf-card wf-glyph-card"><span class="wf-glyph">あ</span></div>
+                      <div class="wf-card wf-glyph-card"><span class="wf-glyph">你</span></div>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="wf-section wf-section--dark" data-wf-section="stats">
+                  <span class="wf-tag">Stats — 2 × 2</span>
+                  <div class="wf-grid-2">
+                    <div class="wf-stack wf-gap-6"><span class="wf-line wf-line--lg wf-w-50"></span><span class="wf-line wf-w-70"></span></div>
+                    <div class="wf-stack wf-gap-6"><span class="wf-line wf-line--lg wf-w-50"></span><span class="wf-line wf-w-70"></span></div>
+                    <div class="wf-stack wf-gap-6"><span class="wf-line wf-line--lg wf-w-50"></span><span class="wf-line wf-w-70"></span></div>
+                    <div class="wf-stack wf-gap-6"><span class="wf-line wf-line--lg wf-w-50"></span><span class="wf-line wf-w-70"></span></div>
+                  </div>
+                </section>
+
+                <section class="wf-section" data-wf-section="tabs">
+                  <span class="wf-tag">Tab audiens + 2 kartu</span>
+                  <div class="wf-stack wf-gap-12">
+                    <span class="wf-line wf-line--lg wf-w-80"></span>
+                    <span class="wf-line wf-w-60"></span>
+                    <div class="wf-row wf-gap-6">
+                      <span class="wf-tab wf-tab--active wf-tab--sm"></span>
+                      <span class="wf-tab wf-tab--sm"></span>
+                      <span class="wf-tab wf-tab--sm"></span>
+                    </div>
+                    <div class="wf-card wf-stack wf-gap-8">
+                      <div class="wf-row wf-between"><span class="wf-chip"></span><span class="wf-chip"></span></div>
+                      <span class="wf-line wf-line--lg wf-w-60"></span>
+                      <span class="wf-line wf-w-45"></span>
+                      <div class="wf-fact"><span class="wf-line wf-w-20"></span><span class="wf-line wf-w-40"></span></div>
+                      <div class="wf-fact"><span class="wf-line wf-w-20"></span><span class="wf-line wf-w-45"></span></div>
+                      <span class="wf-cta wf-cta--full"></span>
+                    </div>
+                    <div class="wf-card wf-stack wf-gap-8">
+                      <div class="wf-row wf-between"><span class="wf-chip"></span><span class="wf-chip"></span></div>
+                      <span class="wf-line wf-line--lg wf-w-55"></span>
+                      <span class="wf-line wf-w-40"></span>
+                      <div class="wf-fact"><span class="wf-line wf-w-20"></span><span class="wf-line wf-w-40"></span></div>
+                      <div class="wf-fact"><span class="wf-line wf-w-20"></span><span class="wf-line wf-w-35"></span></div>
+                      <span class="wf-cta wf-cta--full"></span>
+                    </div>
+                  </div>
+                </section>
+
+                <section class="wf-section wf-section--alt" data-wf-section="pricing">
+                  <span class="wf-tag">Jadwal &amp; biaya — 6 kartu</span>
+                  <span class="wf-line wf-line--lg wf-w-70"></span>
+                  <div class="wf-stack wf-gap-8 wf-mt-12">
+                    <div class="wf-mini-price"><span class="wf-chip"></span><span class="wf-chip wf-chip--sm"></span><span class="wf-chip wf-chip--wide"></span><span class="wf-chip wf-chip--sm"></span></div>
+                    <div class="wf-mini-price"><span class="wf-chip"></span><span class="wf-chip wf-chip--sm"></span><span class="wf-chip wf-chip--wide"></span><span class="wf-chip wf-chip--sm"></span></div>
+                    <div class="wf-mini-price"><span class="wf-chip"></span><span class="wf-chip wf-chip--sm"></span><span class="wf-chip wf-chip--wide"></span><span class="wf-chip wf-chip--sm"></span></div>
+                    <div class="wf-mini-price"><span class="wf-chip"></span><span class="wf-chip wf-chip--sm"></span><span class="wf-chip wf-chip--wide"></span><span class="wf-chip wf-chip--sm"></span></div>
+                    <div class="wf-mini-price"><span class="wf-chip"></span><span class="wf-chip wf-chip--sm"></span><span class="wf-chip wf-chip--wide"></span><span class="wf-chip wf-chip--sm"></span></div>
+                    <div class="wf-mini-price"><span class="wf-chip"></span><span class="wf-chip wf-chip--sm"></span><span class="wf-chip wf-chip--wide"></span><span class="wf-chip wf-chip--sm"></span></div>
+                  </div>
+                </section>
+
+                <section class="wf-section" data-wf-section="why">
+                  <span class="wf-tag">Kenapa Cendekia — 4 kartu</span>
+                  <span class="wf-line wf-line--lg wf-w-70"></span>
+                  <div class="wf-stack wf-gap-8 wf-mt-12">
+                    <div class="wf-card wf-row wf-gap-10"><span class="wf-icon wf-icon--sm"></span><div class="wf-stack wf-gap-6 wf-grow"><span class="wf-line wf-w-60"></span><span class="wf-line wf-w-85"></span></div></div>
+                    <div class="wf-card wf-row wf-gap-10"><span class="wf-icon wf-icon--sm"></span><div class="wf-stack wf-gap-6 wf-grow"><span class="wf-line wf-w-60"></span><span class="wf-line wf-w-85"></span></div></div>
+                    <div class="wf-card wf-row wf-gap-10"><span class="wf-icon wf-icon--sm"></span><div class="wf-stack wf-gap-6 wf-grow"><span class="wf-line wf-w-60"></span><span class="wf-line wf-w-85"></span></div></div>
+                    <div class="wf-card wf-row wf-gap-10"><span class="wf-icon wf-icon--sm"></span><div class="wf-stack wf-gap-6 wf-grow"><span class="wf-line wf-w-60"></span><span class="wf-line wf-w-85"></span></div></div>
+                  </div>
+                </section>
+
+                <section class="wf-section wf-section--alt" data-wf-section="teachers">
+                  <span class="wf-tag">Pengajar — 3 kartu</span>
+                  <span class="wf-line wf-line--lg wf-w-70"></span>
+                  <div class="wf-stack wf-gap-8 wf-mt-12">
+                    <div class="wf-card wf-row wf-gap-10"><span class="wf-avatar wf-avatar--sm"></span><div class="wf-stack wf-gap-6 wf-grow"><span class="wf-line wf-w-60"></span><span class="wf-line wf-w-40"></span><span class="wf-line wf-w-80"></span></div></div>
+                    <div class="wf-card wf-row wf-gap-10"><span class="wf-avatar wf-avatar--sm"></span><div class="wf-stack wf-gap-6 wf-grow"><span class="wf-line wf-w-60"></span><span class="wf-line wf-w-40"></span><span class="wf-line wf-w-80"></span></div></div>
+                    <div class="wf-card wf-row wf-gap-10"><span class="wf-avatar wf-avatar--sm"></span><div class="wf-stack wf-gap-6 wf-grow"><span class="wf-line wf-w-60"></span><span class="wf-line wf-w-40"></span><span class="wf-line wf-w-80"></span></div></div>
+                  </div>
+                </section>
+
+                <section class="wf-section" data-wf-section="testimonials">
+                  <span class="wf-tag">Testimoni — 1 + 2</span>
+                  <span class="wf-line wf-line--lg wf-w-70"></span>
+                  <div class="wf-stack wf-gap-8 wf-mt-12">
+                    <div class="wf-card wf-stack wf-gap-8"><span class="wf-line wf-w-95"></span><span class="wf-line wf-w-80"></span><span class="wf-line wf-w-35"></span></div>
+                    <div class="wf-card wf-stack wf-gap-8"><span class="wf-line wf-w-90"></span><span class="wf-line wf-w-70"></span><span class="wf-line wf-w-35"></span></div>
+                    <div class="wf-card wf-stack wf-gap-8"><span class="wf-line wf-w-90"></span><span class="wf-line wf-w-70"></span><span class="wf-line wf-w-35"></span></div>
+                  </div>
+                </section>
+
+                <section class="wf-section wf-section--alt" data-wf-section="steps">
+                  <span class="wf-tag">Cara daftar — 3 langkah</span>
+                  <span class="wf-line wf-line--lg wf-w-70"></span>
+                  <div class="wf-stack wf-gap-8 wf-mt-12">
+                    <div class="wf-card wf-row wf-gap-10"><span class="wf-circle wf-circle--sm">01</span><div class="wf-stack wf-gap-6 wf-grow"><span class="wf-line wf-w-55"></span><span class="wf-line wf-w-85"></span></div></div>
+                    <div class="wf-card wf-row wf-gap-10"><span class="wf-circle wf-circle--sm">02</span><div class="wf-stack wf-gap-6 wf-grow"><span class="wf-line wf-w-55"></span><span class="wf-line wf-w-85"></span></div></div>
+                    <div class="wf-card wf-row wf-gap-10"><span class="wf-circle wf-circle--sm">03</span><div class="wf-stack wf-gap-6 wf-grow"><span class="wf-line wf-w-55"></span><span class="wf-line wf-w-85"></span></div></div>
+                  </div>
+                  <span class="wf-cta wf-cta--full wf-mt-12"></span>
+                </section>
+
+                <section class="wf-section" data-wf-section="faq">
+                  <span class="wf-tag">FAQ — 5 item</span>
+                  <span class="wf-line wf-line--lg wf-w-75"></span>
+                  <div class="wf-stack wf-gap-6 wf-mt-12">
+                    <div class="wf-faq-row"><span class="wf-line wf-w-60"></span><span class="wf-plus"></span></div>
+                    <div class="wf-faq-row"><span class="wf-line wf-w-65"></span><span class="wf-plus"></span></div>
+                    <div class="wf-faq-row"><span class="wf-line wf-w-55"></span><span class="wf-plus"></span></div>
+                    <div class="wf-faq-row"><span class="wf-line wf-w-50"></span><span class="wf-plus"></span></div>
+                    <div class="wf-faq-row"><span class="wf-line wf-w-45"></span><span class="wf-plus"></span></div>
+                  </div>
+                </section>
+
+                <section class="wf-section wf-section--alt" data-wf-section="contact">
+                  <span class="wf-tag">Kontak + peta demo</span>
+                  <div class="wf-stack wf-gap-10">
+                    <span class="wf-line wf-line--lg wf-w-70"></span>
+                    <span class="wf-line wf-w-90"></span>
+                    <span class="wf-line wf-w-80"></span>
+                    <span class="wf-line wf-w-55"></span>
+                    <div class="wf-map wf-map--sm"><span class="wf-map-pin"></span></div>
+                    <span class="wf-cta wf-cta--full"></span>
+                  </div>
+                </section>
+
+                <section class="wf-section wf-section--flush wf-sticky-section" data-wf-section="sticky">
+                  <span class="wf-tag">Sticky CTA</span>
+                  <div class="wf-sticky-bar">
+                    <span class="wf-line wf-w-40"></span>
+                    <span class="wf-cta wf-cta--sm"></span>
+                  </div>
+                </section>
+
+                <section class="wf-section wf-section--footer" data-wf-section="footer">
+                  <span class="wf-tag">Footer</span>
+                  <div class="wf-stack wf-gap-12">
+                    <div class="wf-stack wf-gap-6"><span class="wf-logo-box wf-logo-box--sm"></span><span class="wf-line wf-w-80"></span><span class="wf-line wf-w-65"></span></div>
+                    <div class="wf-grid-2">
+                      <div class="wf-stack wf-gap-6"><span class="wf-chip"></span><span class="wf-line wf-w-70"></span><span class="wf-line wf-w-60"></span><span class="wf-line wf-w-75"></span></div>
+                      <div class="wf-stack wf-gap-6"><span class="wf-chip"></span><span class="wf-line wf-w-80"></span><span class="wf-line wf-w-65"></span><span class="wf-line wf-w-70"></span></div>
+                    </div>
+                    <div class="wf-row wf-between"><span class="wf-line wf-w-40"></span><span class="wf-line wf-w-25"></span></div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <aside class="wf-notes" data-wireframe-chrome aria-labelledby="wf-notes-title">
+          <h2 id="wf-notes-title">Anotasi</h2>
+          <ol class="wf-notes-list">
+            <li><strong>Header</strong> — logo, navigasi, dan CTA “Kelas gratis” selalu terlihat. Mobile memakai drawer.</li>
+            <li><strong>Hero</strong> — proposisi utama, dua CTA, bukti sosial, dan visual tiga bahasa. Fokus pertama setelah header.</li>
+            <li><strong>Stats</strong> — empat angka kredibilitas; statis agar tidak mengalihkan perhatian dari CTA.</li>
+            <li><strong>Tab audiens</strong> — merekomendasikan 2 program per audiens; tanpa JS keenam kartu tetap tampil.</li>
+            <li><strong>Jadwal &amp; biaya</strong> — enam program tampil transparan. Di mobile tiap baris menjadi kartu.</li>
+            <li><strong>Kenapa Cendekia</strong> — empat alasan pembeda: kelas kecil, pengajar, jadwal, dan kelas gratis.</li>
+            <li><strong>Pengajar</strong> — tiga profil dengan kredensial; avatar inisial, tanpa foto stok.</li>
+            <li><strong>Testimoni</strong> — satu kutipan besar dan dua pendukung, ditutup label “Testimoni demo”.</li>
+            <li><strong>Cara daftar</strong> — tiga langkah singkat dan CTA menuju formulir.</li>
+            <li><strong>FAQ</strong> — lima pertanyaan; memakai <code>&lt;details&gt;</code> agar tetap bisa dibuka tanpa JS.</li>
+            <li><strong>Kontak</strong> — alamat, jam, email, WhatsApp demo, dan ilustrasi peta statis.</li>
+            <li><strong>Sticky CTA</strong> — hanya di mobile, muncul setelah hero; body diberi padding agar footer tidak tertutup.</li>
+            <li><strong>Footer</strong> — navigasi, kontak, sosial, dan disclaimer demo.</li>
+          </ol>
+          <p class="wf-notes-note">Catatan: semua teks di artboard adalah placeholder. Copy final, warna, dan tipografi mengikuti halaman live dan style guide.</p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="logo" href="index.html">
+          <span class="logo-mark" aria-hidden="true">CL</span>
+          <span class="logo-word">Cendekia Lingua</span>
+        </a>
+        <p>Kursus bahasa Inggris, Jepang, dan Mandarin di Yogyakarta untuk pelajar SMA, mahasiswa, dan pekerja muda.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Navigasi footer">
+        <h2 class="footer-heading">Jelajahi</h2>
+        <ul>
+          <li><a href="program.html">Program</a></li>
+          <li><a href="daftar.html">Daftar kelas percobaan</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="wireframe.html">Wireframe</a></li>
+          <li><a href="style-guide.html">Style guide</a></li>
+        </ul>
+      </nav>
+      <div class="footer-contact">
+        <h2 class="footer-heading">Kontak</h2>
+        <address>
+          Jl. Kaliurang Km. 5, Sleman, Yogyakarta (demo)<br>
+          Senin–Jumat 10.00–20.00; Sabtu 09.00–15.00<br>
+          <a href="mailto:halo@cendekialingua.demo">halo@cendekialingua.demo</a>
+        </address>
+        <button type="button" class="btn btn-whatsapp" data-dialog-open="whatsapp">WhatsApp demo</button>
+      </div>
+      <div class="footer-social">
+        <h2 class="footer-heading">Sosial</h2>
+        <p>Instagram · TikTok · YouTube</p>
+        <p>Demo — tautan belum aktif.</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <p>Situs demo. Nama, harga, jadwal, dan testimoni fiktif.</p>
+      <p>© 2026 Cendekia Lingua.</p>
+    </div>
+  </footer>
+
+  <dialog data-dialog="whatsapp" aria-labelledby="whatsapp-title">
+    <div class="dialog-inner">
+      <h2 id="whatsapp-title">WhatsApp demo</h2>
+      <p>Nomor <strong>6281200001234</strong> adalah nomor fiktif. Tombol ini tidak membuka WhatsApp sungguhan dan tidak mengirim pesan.</p>
+      <p>Di situs nyata, tombol ini akan menghubungkan calon siswa dengan admin Cendekia Lingua.</p>
+      <button type="button" class="btn btn-primary" data-dialog-close>Tutup</button>
+    </div>
+  </dialog>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
