@@ -6,6 +6,7 @@ const Cendekia = {
     this.initDialogs();
     this.initMobileNav();
     this.initTabs();
+    this.initProgramFilters();
     this.initStickyCta();
     this.initReveal();
   },
@@ -182,6 +183,29 @@ const Cendekia = {
 
     const initial = tabs.findIndex((tab) => tab.getAttribute('aria-selected') === 'true');
     activate(initial < 0 ? 0 : initial);
+  },
+
+  initProgramFilters() {
+    const bar = document.querySelector('[data-program-filters]');
+    if (!bar) return;
+
+    const buttons = [...bar.querySelectorAll('[data-filter]')];
+    const cards = [...document.querySelectorAll('[data-program-card]')];
+    if (buttons.length === 0 || cards.length === 0) return;
+
+    const apply = (filter) => {
+      buttons.forEach((button) => {
+        button.setAttribute('aria-pressed', String(button.dataset.filter === filter));
+      });
+
+      cards.forEach((card) => {
+        card.hidden = filter !== 'all' && card.dataset.language !== filter;
+      });
+    };
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', () => apply(button.dataset.filter));
+    });
   },
 
   initStickyCta() {
