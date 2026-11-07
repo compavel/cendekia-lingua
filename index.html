@@ -38,10 +38,162 @@
   </header>
 
   <main id="main">
-    <section class="section">
+    <section class="hero" id="hero" data-hero aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Kursus bahasa di Yogyakarta</p>
+          <h1 class="hero-title" id="hero-title"><span class="hero-highlight">Berani bicara,</span><br>siap melangkah.</h1>
+          <p class="hero-lead">Belajar bahasa Inggris, Jepang, dan Mandarin dengan kelas kecil, pengajar berpengalaman, dan jadwal yang cocok untuk pelajar SMA, mahasiswa, maupun pekerja muda.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="daftar.html">Coba kelas gratis</a>
+            <a class="btn btn-secondary" href="program.html">Lihat program</a>
+          </div>
+          <p class="hero-proof"><span>4,9/5 dari 180 ulasan</span><span>1.200+ alumni</span></p>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+          <span class="hero-chip">Kelas percobaan 60 menit • gratis</span>
+          <div class="lang-stack">
+            <div class="lang-card lang-card--en">
+              <span class="lang-char">A</span>
+              <span class="lang-name">Inggris</span>
+            </div>
+            <div class="lang-card lang-card--ja">
+              <span class="lang-char">あ</span>
+              <span class="lang-name">Jepang</span>
+            </div>
+            <div class="lang-card lang-card--zh">
+              <span class="lang-char">你</span>
+              <span class="lang-name">Mandarin</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats-strip" data-stats aria-label="Cendekia Lingua dalam angka">
+      <div class="container stats-grid">
+        <div class="stat"><strong>1.200+</strong><span>alumni</span></div>
+        <div class="stat"><strong>4,9/5</strong><span>rating siswa</span></div>
+        <div class="stat"><strong>12</strong><span>pengajar</span></div>
+        <div class="stat"><strong>3</strong><span>bahasa</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="program" aria-labelledby="program-title">
       <div class="container">
-        <h1>Berani bicara, siap melangkah.</h1>
-        <p>Kursus bahasa Inggris, Jepang, dan Mandarin di Yogyakarta untuk pelajar SMA, mahasiswa, dan pekerja muda.</p>
+        <div class="section-heading">
+          <p class="eyebrow">Program sesuai tujuan</p>
+          <h2 id="program-title">Pilih jalur sesuai tujuanmu.</h2>
+          <p>Tiga audiens, enam program. Pilih yang paling dekat dengan kebutuhanmu sekarang, lalu lihat semua detailnya di halaman program.</p>
+        </div>
+
+        <div class="tablist" role="tablist" aria-label="Pilih audiens">
+          <button class="tab" type="button" role="tab" id="tab-sma" data-tab="sma" aria-selected="true" aria-controls="panel-sma" tabindex="0">SMA</button>
+          <button class="tab" type="button" role="tab" id="tab-mahasiswa" data-tab="mahasiswa" aria-selected="false" aria-controls="panel-mahasiswa" tabindex="-1">Mahasiswa</button>
+          <button class="tab" type="button" role="tab" id="tab-pekerja" data-tab="pekerja" aria-selected="false" aria-controls="panel-pekerja" tabindex="-1">Pekerja</button>
+        </div>
+
+        <section class="program-panel" data-panel="sma" data-audience="sma" id="panel-sma" role="tabpanel" aria-labelledby="tab-sma">
+          <h3 class="panel-heading">Untuk SMA</h3>
+          <div class="program-grid">
+            <article class="program-card" data-program-card data-audience="sma" data-slug="english-teens">
+              <div class="program-card-top">
+                <span class="lang-badge lang-badge--inggris"><span class="lang-dot" aria-hidden="true"></span>Inggris</span>
+                <span class="program-price">Mulai Rp 850.000</span>
+              </div>
+              <h4>English for Teens</h4>
+              <p class="program-meta">SMA · Beginner–Intermediate</p>
+              <dl class="program-facts">
+                <div><dt>Durasi</dt><dd>12 sesi × 90 menit</dd></div>
+                <div><dt>Jadwal</dt><dd>Selasa &amp; Kamis 16.00–17.30</dd></div>
+              </dl>
+              <a class="btn btn-primary" href="daftar.html?program=english-teens">Ambil kelas percobaan</a>
+            </article>
+
+            <article class="program-card" data-program-card data-audience="sma" data-slug="japanese-n5">
+              <div class="program-card-top">
+                <span class="lang-badge lang-badge--jepang"><span class="lang-dot" aria-hidden="true"></span>Jepang</span>
+                <span class="program-price">Mulai Rp 1.100.000</span>
+              </div>
+              <h4>Japanese N5</h4>
+              <p class="program-meta">SMA–umum · Pemula (N5)</p>
+              <dl class="program-facts">
+                <div><dt>Durasi</dt><dd>16 sesi × 150 menit</dd></div>
+                <div><dt>Jadwal</dt><dd>Sabtu 09.00–11.30</dd></div>
+              </dl>
+              <a class="btn btn-primary" href="daftar.html?program=japanese-n5">Ambil kelas percobaan</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="program-panel" data-panel="mahasiswa" data-audience="mahasiswa" id="panel-mahasiswa" role="tabpanel" aria-labelledby="tab-mahasiswa">
+          <h3 class="panel-heading">Untuk Mahasiswa</h3>
+          <div class="program-grid">
+            <article class="program-card" data-program-card data-audience="mahasiswa" data-slug="english-campus">
+              <div class="program-card-top">
+                <span class="lang-badge lang-badge--inggris"><span class="lang-dot" aria-hidden="true"></span>Inggris</span>
+                <span class="program-price">Mulai Rp 950.000</span>
+              </div>
+              <h4>English for Campus</h4>
+              <p class="program-meta">Mahasiswa · Conversation</p>
+              <dl class="program-facts">
+                <div><dt>Durasi</dt><dd>12 sesi × 90 menit</dd></div>
+                <div><dt>Jadwal</dt><dd>Senin &amp; Rabu 18.30–20.00</dd></div>
+              </dl>
+              <a class="btn btn-primary" href="daftar.html?program=english-campus">Ambil kelas percobaan</a>
+            </article>
+
+            <article class="program-card" data-program-card data-audience="mahasiswa" data-slug="japanese-n4">
+              <div class="program-card-top">
+                <span class="lang-badge lang-badge--jepang"><span class="lang-dot" aria-hidden="true"></span>Jepang</span>
+                <span class="program-price">Mulai Rp 1.250.000</span>
+              </div>
+              <h4>Japanese N4</h4>
+              <p class="program-meta">Mahasiswa–umum · Lanjutan N4 (prasyarat N5)</p>
+              <dl class="program-facts">
+                <div><dt>Durasi</dt><dd>16 sesi × 150 menit</dd></div>
+                <div><dt>Jadwal</dt><dd>Sabtu 13.00–15.30</dd></div>
+              </dl>
+              <a class="btn btn-primary" href="daftar.html?program=japanese-n4">Ambil kelas percobaan</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="program-panel" data-panel="pekerja" data-audience="pekerja" id="panel-pekerja" role="tabpanel" aria-labelledby="tab-pekerja">
+          <h3 class="panel-heading">Untuk Pekerja</h3>
+          <div class="program-grid">
+            <article class="program-card" data-program-card data-audience="pekerja" data-slug="english-work">
+              <div class="program-card-top">
+                <span class="lang-badge lang-badge--inggris"><span class="lang-dot" aria-hidden="true"></span>Inggris</span>
+                <span class="program-price">Mulai Rp 1.200.000</span>
+              </div>
+              <h4>English for Work</h4>
+              <p class="program-meta">Pekerja · Business speaking</p>
+              <dl class="program-facts">
+                <div><dt>Durasi</dt><dd>10 sesi × 90 menit</dd></div>
+                <div><dt>Jadwal</dt><dd>Selasa &amp; Kamis 19.00–20.30 (online)</dd></div>
+              </dl>
+              <a class="btn btn-primary" href="daftar.html?program=english-work">Ambil kelas percobaan</a>
+            </article>
+
+            <article class="program-card" data-program-card data-audience="pekerja" data-slug="mandarin-hsk1-2">
+              <div class="program-card-top">
+                <span class="lang-badge lang-badge--mandarin"><span class="lang-dot" aria-hidden="true"></span>Mandarin</span>
+                <span class="program-price">Mulai Rp 1.100.000</span>
+              </div>
+              <h4>Mandarin HSK 1–2</h4>
+              <p class="program-meta">Pekerja–umum · Pemula (HSK 1–2)</p>
+              <dl class="program-facts">
+                <div><dt>Durasi</dt><dd>16 sesi × 90 menit</dd></div>
+                <div><dt>Jadwal</dt><dd>Jumat 18.30–20.00</dd></div>
+              </dl>
+              <a class="btn btn-primary" href="daftar.html?program=mandarin-hsk1-2">Ambil kelas percobaan</a>
+            </article>
+          </div>
+        </section>
+
+        <p class="program-more"><a href="program.html">Lihat semua program →</a></p>
       </div>
     </section>
   </main>
