@@ -128,7 +128,7 @@ test('script validates locally, maps programs, and never sends data', () => {
   assert.ok(js.includes('normalizePhone'));
   assert.ok(js.includes('URLSearchParams'));
   assert.ok(js.includes("get('program')"));
-  assert.ok(js.includes('if (!program) return;'));
+  assert.ok(js.includes('Object.hasOwn(LEAD_PROGRAMS, slug)'));
   assert.ok(js.includes('showModal'));
   assert.ok(js.includes('this.initLeadForm();'));
   assert.ok(!js.includes('fetch('), 'form must not fetch');

@@ -66,8 +66,8 @@ Section “program” dan “harga” sengaja berdekatan. Setelah pengunjung men
 | `--cream` | `#FAF6EC` | Latar utama | 14.94:1 dengan navy |
 | `--white` | `#FFFFFF` | Kartu dan input | 16.13:1 dengan navy |
 | `--ink` | `#16202B` | Body text | 15.25:1 di cream |
-| `--muted` | `#5C6B7A` | Teks sekunder | 5.07:1 di cream |
-| `--line` | `#D8D2C4` | Border dekoratif | 1.51:1 — tidak untuk teks |
+| `--muted` | `#5C6B7A` | Teks sekunder dan border field form | 5.07:1 di cream |
+| `--line` | `#D8D2C4` | Border dekoratif saja | 1.51:1 - tidak untuk teks atau batas field |
 | `--success` | `#1F7A5C` | WhatsApp dan status sukses | 5.25:1 dengan putih |
 
 Prinsipnya:
@@ -75,7 +75,7 @@ Prinsipnya:
 - Navy dipakai untuk struktur dan teks, bukan untuk semua permukaan.
 - Kuning hanya untuk aksi utama dan highlight. Kalau semua tombol kuning, tidak ada yang menonjol.
 - Krem memberi kesan hangat dan membedakan dari template putih-biru yang generik.
-- Rasio kontras dihitung dengan rumus WCAG, bukan dikarang. Angka yang sama muncul di `style-guide.html`.
+- Rasio kontras dihitung dengan rumus WCAG, bukan dikarang. Angka yang sama muncul di `style-guide.html`, dan test menghitung ulang setiap pasangan warna.
 - Kuning tidak pernah dipakai sebagai teks di atas putih. Rasionya hanya 1.63:1.
 
 ### Tipografi
@@ -154,9 +154,11 @@ Yang diterapkan:
 
 - Landmark `header`, `nav`, `main`, `footer`; satu `h1` per halaman; heading tidak melompat.
 - Skip link “Langsung ke konten” yang muncul saat fokus.
-- Fokus keyboard memakai outline navy 3 px dengan offset 3 px, bukan `outline: none`.
-- Drawer mobile: `aria-expanded`, fokus masuk ke link pertama, Escape menutup, fokus kembali ke tombol menu, dan fokus terperangkap di dalam drawer saat Tab.
+- Fokus keyboard memakai outline navy 3 px dengan offset 3 px, bukan `outline: none`. Di footer dan CTA band yang berlatar navy, warna outline diganti kuning.
+- Border field form memakai `--muted` (5.07:1 di cream), bukan `--line`, supaya batas kontrol tetap terlihat.
+- Drawer mobile: `aria-expanded`, fokus masuk ke link pertama, Escape menutup, fokus kembali ke tombol menu, dan fokus terperangkap di dalam drawer saat Tab. Link anchor memindahkan fokus ke section tujuan.
 - Tab audiens: `role="tablist"`, `aria-selected`, `aria-controls`, panah kiri/kanan, Home, dan End.
+- Wireframe memakai dua toggle button dengan `aria-pressed`, bukan `role="tab"` setengah jadi.
 - Filter program: `aria-pressed` pada setiap chip.
 - Dialog WhatsApp: `<dialog>` native, fokus masuk, Escape menutup, fokus kembali ke pemicu, body tidak scroll. Handler `cancel` dibuat eksplisit supaya perilaku tidak bergantung pada event `close` native.
 - Form: label eksplisit, error `aria-invalid` + `aria-describedby`, fokus pindah ke field pertama yang salah.
@@ -177,7 +179,7 @@ Satu temuan kontras ditemukan saat Lighthouse pertama: teks “CL” di logo foo
 
 Diuji dengan Chrome headless dan Chrome visible (Playwright), viewport 390, 768, dan 1440 px.
 
-- 41 automated test pass.
+- 41 markup/content contract test pass. Perilaku interaktif di bawah ini diverifikasi manual di browser, bukan oleh test tersebut.
 - 0 console error dan 0 request lokal gagal.
 - Tidak ada horizontal overflow.
 - Semua link internal dan anchor valid.
@@ -185,7 +187,9 @@ Diuji dengan Chrome headless dan Chrome visible (Playwright), viewport 390, 768,
 - Form invalid memfokuskan `name`; submit valid menampilkan success panel dan menghasilkan 0 request jaringan.
 - Sticky CTA aktif setelah hero, memberi padding bawah 88 px, dan tidak menutupi footer.
 - Dialog: close button, backdrop, dan Escape semuanya melepas `body` lock serta mengembalikan fokus.
-- Focus ring terverifikasi lewat Tab nyata: outline solid 3 px `rgb(11, 34, 57)`.
+- Focus ring terverifikasi lewat Tab nyata: outline solid 3 px `rgb(11, 34, 57)`, dan kuning di atas CTA band navy.
+- Link anchor dari drawer memindahkan fokus ke section tujuan.
+- Wireframe: toggle `aria-pressed` berubah, deep link `?artboard=mobile` hanya menampilkan mobile di desktop.
 
 Yang belum diuji: screen reader sungguhan (NVDA/VoiceOver), Safari, Firefox, dan perangkat fisik. Performa produksi juga belum diukur setelah deploy.
 

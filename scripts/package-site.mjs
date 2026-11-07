@@ -1,4 +1,4 @@
-import { cpSync, existsSync, mkdirSync, rmSync } from 'node:fs';
+import { cpSync, existsSync, mkdirSync, readdirSync, rmSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -16,30 +16,31 @@ const files = [
 
 const directories = ['css', 'js', 'assets'];
 
-const forbidden = ['docs', 'tests', 'figma-import', 'scripts', '.git', '.superpowers', 'node_modules'];
+const allowedRootEntries = new Set([...files, ...directories]);
+
+const source = (name) => resolve(root, name);
+
+// Validate before touching dist so a missing input cannot leave a half-written deploy.
+for (const file of [...files, ...directories]) {
+  if (!existsSync(source(file))) {
+    throw new Error(`Missing required source: ${file}`);
+  }
+}
 
 rmSync(dist, { recursive: true, force: true });
 mkdirSync(dist, { recursive: true });
 
 for (const file of files) {
-  const source = resolve(root, file);
-  if (!existsSync(source)) {
-    throw new Error(`Missing required file: ${file}`);
-  }
-  cpSync(source, resolve(dist, file));
+  cpSync(source(file), resolve(dist, file));
 }
 
 for (const directory of directories) {
-  const source = resolve(root, directory);
-  if (!existsSync(source)) {
-    throw new Error(`Missing required directory: ${directory}`);
-  }
-  cpSync(source, resolve(dist, directory), { recursive: true });
+  cpSync(source(directory), resolve(dist, directory), { recursive: true });
 }
 
-for (const name of forbidden) {
-  if (existsSync(resolve(dist, name))) {
-    throw new Error(`Refusing to publish ${name} in dist/`);
+for (const entry of readdirSync(dist)) {
+  if (!allowedRootEntries.has(entry)) {
+    throw new Error(`Refusing unexpected entry in dist/: ${entry}`);
   }
 }
 

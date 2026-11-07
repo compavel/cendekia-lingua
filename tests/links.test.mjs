@@ -87,7 +87,7 @@ test('init registers every implemented behavior', () => {
   }
 });
 
-test('dialog close restores focus without relying on the native close event', () => {
+test('dialog source keeps focus restore and explicit cancel handling', () => {
   const js = read('js/main.js');
   const block = /initDialogs\(\) \{([\s\S]*?)\n  \},/.exec(js)?.[1] ?? '';
   assert.ok(block, 'initDialogs() must exist');
@@ -114,7 +114,7 @@ test('homepage exposes Open Graph metadata and a real preview image', () => {
   const imageTag = tags(html, 'meta').find((tag) => attr(tag, 'property') === 'og:image');
   const image = attr(imageTag, 'content');
   assert.ok(image, 'og:image must have content');
-  assert.ok(image.endsWith('assets/og-image.jpg'), 'og:image must point at the generated JPEG');
+  assert.match(image, /^https:\/\/[^/]+\/assets\/og-image\.jpg$/, 'og:image must be an absolute HTTPS URL');
   assert.ok(!/^javascript:/i.test(image), 'og:image must not be a javascript: URL');
 
   const local = image.replace(/^https?:\/\/[^/]+\//, '');

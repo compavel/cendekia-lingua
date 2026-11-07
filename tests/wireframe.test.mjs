@@ -71,9 +71,10 @@ test('annotations sit outside the artboards and explain the sections', () => {
   }
 });
 
-test('artboard switch exposes two selected states', () => {
+test('artboard switch exposes two pressed states', () => {
   const wrap = tags(html, 'div').find((tag) => /\bdata-artboard-switch\b/.test(tag));
   assert.ok(wrap, 'switch container must exist');
+  assert.ok(!/\brole="tablist"/.test(wrap), 'simple toggles must not claim tab semantics');
 
   const tabs = tags(html, 'button').filter((tag) => /\bdata-artboard-tab\b/.test(tag));
   assert.equal(tabs.length, 2);
@@ -81,22 +82,26 @@ test('artboard switch exposes two selected states', () => {
     tabs.map((tab) => attr(tab, 'data-artboard-tab')),
     ['desktop', 'mobile'],
   );
-  assert.ok(tabs.every((tab) => ['true', 'false'].includes(attr(tab, 'aria-selected'))));
-  assert.equal(tabs.filter((tab) => attr(tab, 'aria-selected') === 'true').length, 1);
+  assert.ok(tabs.every((tab) => attr(tab, 'type') === 'button'));
+  assert.ok(tabs.every((tab) => ['true', 'false'].includes(attr(tab, 'aria-pressed'))));
+  assert.equal(tabs.filter((tab) => attr(tab, 'aria-pressed') === 'true').length, 1);
+  assert.ok(tabs.every((tab) => !attr(tab, 'aria-selected')));
 });
 
 test('gallery scales, switches, and exports through CSS and JS', () => {
-  for (const needle of ['initWireframe', 'URLSearchParams', 'artboard', 'export', 'is-export', 'is-wireframe-export']) {
+  for (const needle of ['initWireframe', 'URLSearchParams', 'artboard', 'export', 'is-export', 'is-wireframe-export', 'has-artboard-request']) {
     assert.ok(js.includes(needle), `js/main.js must contain ${needle}`);
   }
 
   assert.ok(css.includes('.js .wf-frame { display: none; }'));
   assert.ok(css.includes('.js .wf-frame.is-active { display: block; }'));
   assert.ok(css.includes('zoom: 0.6'));
+  assert.ok(css.includes('.wf-switch button[aria-pressed="true"]'));
   assert.ok(css.includes('.is-export .wf-artboard--desktop { zoom: 1; }'));
   assert.ok(css.includes('.is-wireframe-export .site-header'));
   assert.ok(css.includes('.is-wireframe-export .site-footer'));
   assert.ok(css.includes('.is-wireframe-export [data-wireframe-chrome]'));
   assert.ok(css.includes('.is-wireframe-export .wf-notes'));
+  assert.ok(css.includes('.has-artboard-request .wf-frame.is-active'));
   assert.ok(!css.includes('.is-export .site-header'), 'generic export mode must keep the site header');
 });

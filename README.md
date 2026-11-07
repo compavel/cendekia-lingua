@@ -129,7 +129,7 @@ Kalau memakai `file://`, sebagian browser memblokir pemuatan font atau modul. St
 node --test "tests/*.test.mjs"
 ```
 
-Saat README ini ditulis: **41 test, 41 pass**. Cakupannya:
+Saat README ini ditulis: **41 test, 41 pass**. Test ini berbasis markup dan kontrak source, bukan browser otomatis. Perilaku interaktif diverifikasi manual di Chrome (lihat bagian QA di bawah). Cakupannya:
 
 - Struktur lima halaman: doctype, `lang="id"`, viewport, satu `h1`, landmark, skip link, dialog, dan disclaimer.
 - Token warna/font, reduced motion, serta kontrak `window.Cendekia`.
@@ -137,9 +137,9 @@ Saat README ini ditulis: **41 test, 41 pass**. Cakupannya:
 - Halaman program: empat filter, enam kartu sesuai matriks, placement test.
 - Form: sembilan field, opsi yang benar, validasi, success panel, dan tidak ada pengiriman data.
 - Wireframe: dua artboard literal, anotasi, switcher, dan mode ekspor.
-- Style guide: sepuluh section, sepuluh token dengan rasio kontras hasil hitungan, specimen tipe, state tombol/form, komponen, spacing, do/don't, dan catatan aksesibilitas.
+- Style guide: sepuluh section, sepuluh token dengan rasio kontras yang dihitung ulang oleh test dari pasangan warna, specimen tipe, state tombol/form, komponen, spacing, do/don't, dan catatan aksesibilitas.
 - Link checker: semua `href`/`src` lokal dan anchor menuju target yang ada, tidak ada `href="#"` atau `javascript:`.
-- Regresi dialog: close harus melepas scroll lock dan mengembalikan fokus tanpa bergantung pada event `close` native.
+- Kontrak source dialog: close harus memulihkan fokus dan `cancel` ditangani eksplisit, tanpa bergantung pada event `close` native.
 
 Quality check tambahan di Chrome headless (7 November 2026):
 
@@ -156,8 +156,11 @@ QA manual juga mencakup 390, 768, dan 1440 px:
 - Tidak ada heading yang melompat.
 - Drawer, tab (termasuk panah keyboard), filter, FAQ, dan dialog berfungsi.
 - Escape menutup drawer/dialog dan fokus kembali ke pemicu.
+- Link anchor dari drawer memindahkan fokus ke section tujuan.
 - Sticky CTA tidak menutupi footer.
 - Form invalid memfokuskan field pertama yang salah; submit valid tidak memicu request jaringan.
+- Focus ring form dan tombol di CTA band terlihat di atas latar masing-masing.
+- Wireframe memakai toggle button dengan `aria-pressed`; deep link `?artboard=` hanya menampilkan satu artboard.
 
 ## Screenshot
 

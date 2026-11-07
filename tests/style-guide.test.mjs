@@ -49,6 +49,19 @@ test('style guide covers every required section', () => {
   assert.ok(css.includes('.sg-do-dont'), 'do/dont styles must exist');
 });
 
+const luminance = (hex) => {
+  const channels = [1, 3, 5].map((start) => parseInt(hex.slice(start, start + 2), 16) / 255);
+  const [r, g, b] = channels.map((value) =>
+    value <= 0.03928 ? value / 12.92 : ((value + 0.055) / 1.055) ** 2.4,
+  );
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+};
+
+const contrast = (foreground, background) => {
+  const [lighter, darker] = [luminance(foreground), luminance(background)].sort((a, b) => b - a);
+  return (lighter + 0.05) / (darker + 0.05);
+};
+
 test('all ten design tokens appear as labelled swatches with real contrast ratios', () => {
   const swatches = [...html.matchAll(/<li[^>]*data-swatch="[^"]*"[^>]*>[\s\S]*?<\/li>/gi)].map(
     (match) => match[0],
@@ -61,14 +74,19 @@ test('all ten design tokens appear as labelled swatches with real contrast ratio
     assert.ok(hex, 'every swatch must show a hex value');
     assert.ok(TOKENS[hex], `${hex} must be a documented token`);
     found.add(hex);
-    assert.match(text(swatch), /\d+\.\d+:1/, `${hex} must show a computed contrast ratio`);
     assert.ok(css.includes(`var(--${TOKENS[hex]})`), `${hex} must be used via its custom property`);
+
+    const pair = /--on-swatch:\s*(#[0-9A-F]{6})/i.exec(swatch)?.[1]?.toUpperCase() ?? null;
+    assert.ok(pair, `${hex} must document the colour it is paired with`);
+
+    const shown = /(\d+\.\d+):1/.exec(text(swatch))?.[1] ?? null;
+    assert.ok(shown, `${hex} must show a computed contrast ratio`);
+
+    const computed = Math.round(contrast(hex, pair) * 100) / 100;
+    assert.equal(Number(shown), computed, `${hex} on ${pair} must match the computed WCAG ratio`);
   }
 
   assert.deepEqual([...found].sort(), Object.keys(TOKENS).sort());
-  assert.match(text(html), /14\.94:1/);
-  assert.match(text(html), /5\.07:1/);
-  assert.match(text(html), /1\.63:1/);
 });
 
 test('typography specimens match the live scale', () => {

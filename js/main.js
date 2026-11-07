@@ -171,8 +171,18 @@ const Cendekia = {
     });
 
     nav.addEventListener('click', (event) => {
-      if (event.target.closest('a') && window.innerWidth < 980) {
-        closeNav(false);
+      const link = event.target.closest('a');
+      if (!link || window.innerWidth >= 980) return;
+
+      closeNav(false);
+
+      const url = new URL(link.href, window.location.href);
+      const samePage = url.pathname === window.location.pathname;
+      const target = samePage && url.hash ? document.getElementById(url.hash.slice(1)) : null;
+
+      if (target) {
+        target.setAttribute('tabindex', '-1');
+        target.focus({ preventScroll: true });
       }
     });
   },
@@ -283,8 +293,9 @@ const Cendekia = {
 
   prefillLeadProgram(form) {
     const slug = new URLSearchParams(window.location.search).get('program');
+    if (!slug || !Object.hasOwn(LEAD_PROGRAMS, slug)) return;
+
     const program = LEAD_PROGRAMS[slug];
-    if (!program) return;
 
     const note = document.querySelector('[data-program-note]');
     const name = document.querySelector('[data-program-name]');
@@ -389,7 +400,8 @@ const Cendekia = {
     form.hidden = true;
     panel.hidden = false;
     panel.querySelector('h2')?.focus();
-    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    panel.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
   },
 
   initWireframe() {
@@ -411,13 +423,19 @@ const Cendekia = {
         frame.classList.toggle('is-active', frame.dataset.artboardFrame === name);
       });
       tabs.forEach((tab) => {
-        tab.setAttribute('aria-selected', String(tab.dataset.artboardTab === name));
+        tab.setAttribute('aria-pressed', String(tab.dataset.artboardTab === name));
       });
       document.documentElement.dataset.wireframeArtboard = name;
     };
 
     const requested = params.get('artboard');
-    const initial = ['desktop', 'mobile'].includes(requested)
+    const hasRequest = ['desktop', 'mobile'].includes(requested);
+
+    if (hasRequest) {
+      document.documentElement.classList.add('has-artboard-request');
+    }
+
+    const initial = hasRequest
       ? requested
       : window.matchMedia('(max-width: 759px)').matches
         ? 'mobile'
@@ -425,14 +443,20 @@ const Cendekia = {
 
     setActive(initial);
 
-    if (!requested) {
+    let userChosen = false;
+
+    if (!hasRequest) {
       const media = window.matchMedia('(max-width: 759px)');
-      const syncDefault = () => setActive(media.matches ? 'mobile' : 'desktop');
-      window.addEventListener('load', syncDefault, { once: true });
+      media.addEventListener('change', (event) => {
+        if (!userChosen) setActive(event.matches ? 'mobile' : 'desktop');
+      });
     }
 
     tabs.forEach((tab) => {
-      tab.addEventListener('click', () => setActive(tab.dataset.artboardTab));
+      tab.addEventListener('click', () => {
+        userChosen = true;
+        setActive(tab.dataset.artboardTab);
+      });
     });
   },
 

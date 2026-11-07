@@ -187,7 +187,8 @@ p {
   outline-offset: 3px;
 }
 
-.site-footer :focus-visible {
+.site-footer :focus-visible,
+.cta-band :focus-visible {
   outline-color: var(--yellow-400);
 }
 
@@ -436,7 +437,7 @@ textarea {
   width: 100%;
   min-height: 44px;
   padding: 10px 14px;
-  border: 1.5px solid var(--line);
+  border: 1.5px solid var(--muted);
   border-radius: var(--radius-input);
   background: var(--white);
   color: var(--ink);
@@ -450,8 +451,8 @@ textarea {
 input:focus,
 select:focus,
 textarea:focus {
-  border-color: var(--navy-700);
-  outline: 3px solid var(--yellow-100);
+  border-color: var(--navy-900);
+  outline: 3px solid var(--navy-900);
   outline-offset: 1px;
 }
 
@@ -1761,7 +1762,7 @@ textarea[aria-invalid="true"] {
   cursor: pointer;
 }
 
-.wf-switch button[aria-selected="true"] {
+.wf-switch button[aria-pressed="true"] {
   background: var(--navy-900);
   color: var(--white);
 }
@@ -2355,6 +2356,12 @@ textarea[aria-invalid="true"] {
 }
 .is-export .wf-artboard--desktop { zoom: 1; }
 .is-export .wf-artboard--mobile { zoom: 1; }
+
+/* A deep link to one artboard stays on that artboard, even on wide screens. */
+.has-artboard-request .wf-stage { display: block; }
+.has-artboard-request .wf-frame { display: none; }
+.has-artboard-request .wf-frame.is-active { display: block; }
+.has-artboard-request .wf-switch { display: inline-flex; }
 
 /* --------------------------------------------------------------------------
    Style guide
