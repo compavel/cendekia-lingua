@@ -146,7 +146,7 @@ test('five pages share the document shell', () => {
 
 - [ ] **Step 3: Run the test to verify it fails**
 
-Run: `node --test "tests/*.test.mjs"structure.test.mjs`
+Run: `node --test tests/structure.test.mjs`
 Expected: FAIL with `ENOENT` for `index.html` or `style.css`.
 
 - [ ] **Step 4: Create the shared shell and base system**
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => Cendekia.init());
 
 - [ ] **Step 5: Run the test to verify it passes**
 
-Run: `node --test "tests/*.test.mjs"structure.test.mjs`
+Run: `node --test tests/structure.test.mjs`
 Expected: all structure tests PASS.
 
 - [ ] **Step 6: Smoke-test the shell**
@@ -227,7 +227,7 @@ git commit -m "feat: scaffold static site shell"
 
 - [ ] **Step 2: Run the test to verify it fails**
 
-Run: `node --test "tests/*.test.mjs"home.test.mjs`
+Run: `node --test tests/home.test.mjs`
 Expected: FAIL because the hero and program cards do not exist yet.
 
 - [ ] **Step 3: Implement the homepage top**
@@ -244,7 +244,7 @@ Add CSS for hero, language cards, stats, tabs, program cards, and responsive sta
 
 - [ ] **Step 4: Run the test to verify it passes**
 
-Run: `node --test "tests/*.test.mjs"home.test.mjs`
+Run: `node --test tests/home.test.mjs`
 Expected: all homepage-top tests PASS.
 
 - [ ] **Step 5: Browser QA**
@@ -287,7 +287,7 @@ Add assertions:
 
 - [ ] **Step 2: Run the test to verify it fails**
 
-Run: `node --test "tests/*.test.mjs"home.test.mjs`
+Run: `node --test tests/home.test.mjs`
 Expected: FAIL on the first missing pricing/teacher/FAQ assertion.
 
 - [ ] **Step 3: Implement the lower homepage**
@@ -321,7 +321,7 @@ Add CSS:
 
 - [ ] **Step 4: Run the test to verify it passes**
 
-Run: `node --test "tests/*.test.mjs"home.test.mjs`
+Run: `node --test tests/home.test.mjs`
 Expected: all homepage tests PASS.
 
 - [ ] **Step 5: Browser QA**
@@ -361,7 +361,7 @@ Assert:
 
 - [ ] **Step 2: Run the test to verify it fails**
 
-Run: `node --test "tests/*.test.mjs"program.test.mjs`
+Run: `node --test tests/program.test.mjs`
 Expected: FAIL because `program.html` is still a shell.
 
 - [ ] **Step 3: Implement the program page and filter**
@@ -370,7 +370,7 @@ Add the hero, filter bar, six cards, placement-test section, and CTA band. Reuse
 
 - [ ] **Step 4: Run the test to verify it passes**
 
-Run: `node --test "tests/*.test.mjs"program.test.mjs`
+Run: `node --test tests/program.test.mjs`
 Expected: all program tests PASS.
 
 - [ ] **Step 5: Browser QA**
@@ -412,7 +412,7 @@ Assert:
 
 - [ ] **Step 2: Run the test to verify it fails**
 
-Run: `node --test "tests/*.test.mjs"daftar.test.mjs`
+Run: `node --test tests/daftar.test.mjs`
 Expected: FAIL because the form does not exist yet.
 
 - [ ] **Step 3: Implement the form**
@@ -435,7 +435,7 @@ Add the two-column desktop layout (form 60%, benefits 40% sticky) and single-col
 
 - [ ] **Step 4: Run the test to verify it passes**
 
-Run: `node --test "tests/*.test.mjs"daftar.test.mjs`
+Run: `node --test tests/daftar.test.mjs`
 Expected: all registration tests PASS.
 
 - [ ] **Step 5: Browser QA**
@@ -474,7 +474,7 @@ Assert:
 
 - [ ] **Step 2: Run the test to verify it fails**
 
-Run: `node --test "tests/*.test.mjs"wireframe.test.mjs`
+Run: `node --test tests/wireframe.test.mjs`
 Expected: FAIL because the wireframe page is still a shell.
 
 - [ ] **Step 3: Implement the wireframe page**
@@ -486,7 +486,7 @@ Add a documentation-style intro, a Desktop/Mobile switch, and a stage with two g
 
 - [ ] **Step 4: Run the test to verify it passes**
 
-Run: `node --test "tests/*.test.mjs"wireframe.test.mjs`
+Run: `node --test tests/wireframe.test.mjs`
 Expected: all wireframe tests PASS.
 
 - [ ] **Step 5: Browser QA**
@@ -526,7 +526,7 @@ Assert:
 
 - [ ] **Step 2: Run the test to verify it fails**
 
-Run: `node --test "tests/*.test.mjs"style-guide.test.mjs`
+Run: `node --test tests/style-guide.test.mjs`
 Expected: FAIL because the style guide is still a shell.
 
 - [ ] **Step 3: Implement the style guide**
@@ -535,7 +535,7 @@ Build the sections using the live classes. Show the logo mark/wordmark on light 
 
 - [ ] **Step 4: Run the test to verify it passes**
 
-Run: `node --test "tests/*.test.mjs"style-guide.test.mjs`
+Run: `node --test tests/style-guide.test.mjs`
 Expected: all style-guide tests PASS.
 
 - [ ] **Step 5: Browser QA**
