@@ -23,7 +23,7 @@
 - Responsive at 390, 768, and 1440 px. `document.documentElement.scrollWidth` must never exceed the viewport width.
 - Accessibility: skip link, `lang="id"`, landmarks, one `<h1>` per page, ordered headings, explicit form labels, visible focus, 44 px touch targets, `prefers-reduced-motion`, native `<dialog>` semantics.
 - Every internal `href`/`src` must resolve. No `href="#"` and no `javascript:` links.
-- Tests: `node --test tests/` must pass before every commit and before the PR.
+- Tests: `node --test "tests/*.test.mjs"` must pass before every commit and before the PR.
 - Local server: `php -S 127.0.0.1:8000` from the project root.
 - Full-page screenshots use `?export=1` so fixed overlays and reveal animations do not pollute the image. Wireframe screenshots use `wireframe.html?artboard=desktop|mobile&export=1`.
 - Nine PNG deliverables live in `figma-import/`: `01-home-desktop-1440.png`, `02-home-mobile-390.png`, `02b-home-mobile-sticky-390.png`, `03-program-desktop-1440.png`, `04-program-mobile-390.png`, `05-daftar-mobile-390.png`, `06-wireframe-desktop-1440.png`, `07-wireframe-mobile-390.png`, `08-style-guide-desktop-1440.png`.
@@ -146,7 +146,7 @@ test('five pages share the document shell', () => {
 
 - [ ] **Step 3: Run the test to verify it fails**
 
-Run: `node --test tests/structure.test.mjs`
+Run: `node --test "tests/*.test.mjs"structure.test.mjs`
 Expected: FAIL with `ENOENT` for `index.html` or `style.css`.
 
 - [ ] **Step 4: Create the shared shell and base system**
@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => Cendekia.init());
 
 - [ ] **Step 5: Run the test to verify it passes**
 
-Run: `node --test tests/structure.test.mjs`
+Run: `node --test "tests/*.test.mjs"structure.test.mjs`
 Expected: all structure tests PASS.
 
 - [ ] **Step 6: Smoke-test the shell**
@@ -227,7 +227,7 @@ git commit -m "feat: scaffold static site shell"
 
 - [ ] **Step 2: Run the test to verify it fails**
 
-Run: `node --test tests/home.test.mjs`
+Run: `node --test "tests/*.test.mjs"home.test.mjs`
 Expected: FAIL because the hero and program cards do not exist yet.
 
 - [ ] **Step 3: Implement the homepage top**
@@ -244,7 +244,7 @@ Add CSS for hero, language cards, stats, tabs, program cards, and responsive sta
 
 - [ ] **Step 4: Run the test to verify it passes**
 
-Run: `node --test tests/home.test.mjs`
+Run: `node --test "tests/*.test.mjs"home.test.mjs`
 Expected: all homepage-top tests PASS.
 
 - [ ] **Step 5: Browser QA**
@@ -287,7 +287,7 @@ Add assertions:
 
 - [ ] **Step 2: Run the test to verify it fails**
 
-Run: `node --test tests/home.test.mjs`
+Run: `node --test "tests/*.test.mjs"home.test.mjs`
 Expected: FAIL on the first missing pricing/teacher/FAQ assertion.
 
 - [ ] **Step 3: Implement the lower homepage**
@@ -321,7 +321,7 @@ Add CSS:
 
 - [ ] **Step 4: Run the test to verify it passes**
 
-Run: `node --test tests/home.test.mjs`
+Run: `node --test "tests/*.test.mjs"home.test.mjs`
 Expected: all homepage tests PASS.
 
 - [ ] **Step 5: Browser QA**
@@ -361,7 +361,7 @@ Assert:
 
 - [ ] **Step 2: Run the test to verify it fails**
 
-Run: `node --test tests/program.test.mjs`
+Run: `node --test "tests/*.test.mjs"program.test.mjs`
 Expected: FAIL because `program.html` is still a shell.
 
 - [ ] **Step 3: Implement the program page and filter**
@@ -370,7 +370,7 @@ Add the hero, filter bar, six cards, placement-test section, and CTA band. Reuse
 
 - [ ] **Step 4: Run the test to verify it passes**
 
-Run: `node --test tests/program.test.mjs`
+Run: `node --test "tests/*.test.mjs"program.test.mjs`
 Expected: all program tests PASS.
 
 - [ ] **Step 5: Browser QA**
@@ -412,7 +412,7 @@ Assert:
 
 - [ ] **Step 2: Run the test to verify it fails**
 
-Run: `node --test tests/daftar.test.mjs`
+Run: `node --test "tests/*.test.mjs"daftar.test.mjs`
 Expected: FAIL because the form does not exist yet.
 
 - [ ] **Step 3: Implement the form**
@@ -435,7 +435,7 @@ Add the two-column desktop layout (form 60%, benefits 40% sticky) and single-col
 
 - [ ] **Step 4: Run the test to verify it passes**
 
-Run: `node --test tests/daftar.test.mjs`
+Run: `node --test "tests/*.test.mjs"daftar.test.mjs`
 Expected: all registration tests PASS.
 
 - [ ] **Step 5: Browser QA**
@@ -474,7 +474,7 @@ Assert:
 
 - [ ] **Step 2: Run the test to verify it fails**
 
-Run: `node --test tests/wireframe.test.mjs`
+Run: `node --test "tests/*.test.mjs"wireframe.test.mjs`
 Expected: FAIL because the wireframe page is still a shell.
 
 - [ ] **Step 3: Implement the wireframe page**
@@ -486,7 +486,7 @@ Add a documentation-style intro, a Desktop/Mobile switch, and a stage with two g
 
 - [ ] **Step 4: Run the test to verify it passes**
 
-Run: `node --test tests/wireframe.test.mjs`
+Run: `node --test "tests/*.test.mjs"wireframe.test.mjs`
 Expected: all wireframe tests PASS.
 
 - [ ] **Step 5: Browser QA**
@@ -526,7 +526,7 @@ Assert:
 
 - [ ] **Step 2: Run the test to verify it fails**
 
-Run: `node --test tests/style-guide.test.mjs`
+Run: `node --test "tests/*.test.mjs"style-guide.test.mjs`
 Expected: FAIL because the style guide is still a shell.
 
 - [ ] **Step 3: Implement the style guide**
@@ -535,7 +535,7 @@ Build the sections using the live classes. Show the logo mark/wordmark on light 
 
 - [ ] **Step 4: Run the test to verify it passes**
 
-Run: `node --test tests/style-guide.test.mjs`
+Run: `node --test "tests/*.test.mjs"style-guide.test.mjs`
 Expected: all style-guide tests PASS.
 
 - [ ] **Step 5: Browser QA**
@@ -571,7 +571,7 @@ Add a structure assertion that `Cendekia.init()` registers every implemented met
 
 - [ ] **Step 2: Run the full test suite**
 
-Run: `node --test tests/`
+Run: `node --test "tests/*.test.mjs"`
 Expected: all tests PASS.
 
 - [ ] **Step 3: Run the responsive and accessibility QA**
@@ -589,7 +589,7 @@ Start `php -S 127.0.0.1:8000`. For each page, check 390, 768, and 1440:
 
 - [ ] **Step 4: Fix what the QA finds and add regression tests where possible**
 
-For every bug, add or tighten a test if it is statically checkable. Re-run `node --test tests/` after each fix. Do not weaken or delete existing tests.
+For every bug, add or tighten a test if it is statically checkable. Re-run `node --test "tests/*.test.mjs"` after each fix. Do not weaken or delete existing tests.
 
 - [ ] **Step 5: Commit**
 
@@ -648,7 +648,7 @@ Design notes: brief interpretation, audience, content hierarchy, visual system, 
 
 - [ ] **Step 4: Run the full test suite and inspect the exports**
 
-Run: `node --test tests/`
+Run: `node --test "tests/*.test.mjs"`
 Expected: all tests PASS.
 
 Open each PNG with `browser.preview` and check for clipped text, missing fonts, sticky bars, and blank sections.
@@ -691,7 +691,7 @@ gh pr create --base main --head feat/cendekia-site --title "feat: build Cendekia
 
 - [ ] **Step 3: Run checks and deploy a preview**
 
-Run `node --test tests/`, Lighthouse checks, and the 390/768/1440 QA again. Create or reuse the Netlify site first (`netlify sites:create --name cendekia-lingua`, or `netlify link` if it already exists; if the name is taken, use `cendekia-lingua-demo`). Record the site ID in `.netlify/state.json` (gitignored). Then:
+Run `node --test "tests/*.test.mjs"`, Lighthouse checks, and the 390/768/1440 QA again. Create or reuse the Netlify site first (`netlify sites:create --name cendekia-lingua`, or `netlify link` if it already exists; if the name is taken, use `cendekia-lingua-demo`). Record the site ID in `.netlify/state.json` (gitignored). Then:
 
 ```bash
 node scripts/package-site.mjs
@@ -718,7 +718,7 @@ After all checks are green:
 gh pr merge --squash --delete-branch
 git switch main
 git pull
-node --test tests/
+node --test "tests/*.test.mjs"
 node scripts/package-site.mjs
 netlify deploy --prod --dir=dist --site <site-id>
 ```
