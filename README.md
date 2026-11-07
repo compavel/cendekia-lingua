@@ -78,6 +78,8 @@ Karena itu homepage memakai tab audiens. Setiap tab hanya menampilkan dua progra
 │   └── style.css
 ├── js/
 │   └── main.js
+├── scripts/
+│   └── package-site.mjs
 ├── assets/
 │   ├── logo.svg
 │   └── og-image.jpg
@@ -229,14 +231,14 @@ Alasan lengkap, termasuk trade-off dan bahan interview, ada di [`docs/design-not
 
 Target: Netlify, static site, tanpa build command.
 
-Folder publish sebaiknya dibuat bersih supaya test, screenshot QA, dan dokumen internal tidak ikut terunggah:
+Folder publish dibuat oleh script Node sederhana supaya test, screenshot QA, dan dokumen internal tidak ikut terunggah:
 
 ```bash
-mkdir -p dist
-cp *.html robots.txt dist/
-cp -r css js assets dist/
+node scripts/package-site.mjs
 netlify deploy --prod --dir=dist
 ```
+
+Script menyalin lima halaman, `robots.txt`, `css/`, `js/`, dan `assets/` ke `dist/`, lalu berhenti kalau menemukan `docs`, `tests`, `figma-import`, atau folder internal. Ini bukan build step; tidak ada transformasi file.
 
 `dist/` masuk `.gitignore`. Setelah deploy, verifikasi:
 
