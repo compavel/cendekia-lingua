@@ -4,9 +4,9 @@ Company profile statis untuk Cendekia Lingua, kursus bahasa Inggris, Jepang, dan
 
 > **Data demo.** Nama, harga, jadwal, alamat, testimoni, dan nomor WhatsApp adalah fiktif. Website ini bukan layanan kursus sungguhan.
 
-**Status:** implemented dan tested secara lokal. Deploy Netlify dilakukan pada tahap akhir; URL live dicantumkan setelah verifikasi.
+**Status:** implemented, tested, dan live di Netlify. Tidak ada backend, database, atau pengiriman data form.
 
-**Live demo:** _menyusul setelah deploy Netlify._
+**Live demo:** <https://cendekia-lingua.netlify.app>
 
 ## Masalah yang diselesaikan
 
@@ -247,7 +247,7 @@ Script menyalin lima halaman, `robots.txt`, `css/`, `js/`, dan `assets/` ke `dis
 - Dialog WhatsApp, drawer, filter, dan form berfungsi.
 - URL live dimasukkan ke README dan `og:image` diubah menjadi URL absolut.
 
-Status deploy: **belum dikonfigurasi** saat README ini ditulis. Akan diperbarui setelah Netlify site dibuat dan diverifikasi.
+Demo produksi: <https://cendekia-lingua.netlify.app>. Netlify, HTTPS otomatis, tanpa build step. Hanya lima halaman dan aset situs yang dipublikasikan; `docs/`, `tests/`, `scripts/`, dan `figma-import/` tidak ikut deploy.
 
 ## Keterbatasan dan rencana lanjutan
 
@@ -275,7 +275,7 @@ Status deploy: **belum dikonfigurasi** saat README ini ditulis. Akan diperbarui 
 | Lighthouse homepage | Tested — 96/100/100/100 (lokal) |
 | Lighthouse `daftar.html` | Tested — 100/100/100/100 (lokal) |
 | Screen reader / Safari / Firefox / perangkat fisik | Not tested |
-| Deploy Netlify | Not tested — belum dikonfigurasi |
+| Deploy Netlify | Tested — live, 5 halaman HTTP 200, aset termuat |
 | Form mengirim data sungguhan | Not implemented — di luar scope |
 
 ## Author
