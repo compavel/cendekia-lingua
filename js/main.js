@@ -402,7 +402,7 @@ const Cendekia = {
 
     const params = new URLSearchParams(window.location.search);
     if (params.get('export') === '1') {
-      document.documentElement.classList.add('is-export');
+      document.documentElement.classList.add('is-export', 'is-wireframe-export');
     }
 
     const setActive = (name) => {

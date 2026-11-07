@@ -2330,11 +2330,11 @@ textarea[aria-invalid="true"] {
 }
 
 /* Wireframe export: one artboard at 1:1, no gallery chrome. */
-.is-export .site-header,
-.is-export .site-footer,
-.is-export [data-wireframe-chrome],
-.is-export .wf-notes,
-.is-export .wf-frame-label {
+.is-wireframe-export .site-header,
+.is-wireframe-export .site-footer,
+.is-wireframe-export [data-wireframe-chrome],
+.is-wireframe-export .wf-notes,
+.is-wireframe-export .wf-frame-label {
   display: none;
 }
 

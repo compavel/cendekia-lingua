@@ -101,6 +101,26 @@ test('dialog close restores focus without relying on the native close event', ()
   assert.match(block, /addEventListener\('close', restoreFocus\)/, 'native close stays as a fallback');
 });
 
+test('homepage exposes Open Graph metadata and a real preview image', () => {
+  const html = read('index.html');
+
+  for (const property of ['og:title', 'og:description', 'og:type', 'og:image']) {
+    assert.ok(
+      tags(html, 'meta').some((tag) => attr(tag, 'property') === property),
+      `meta ${property} must exist`,
+    );
+  }
+
+  const imageTag = tags(html, 'meta').find((tag) => attr(tag, 'property') === 'og:image');
+  const image = attr(imageTag, 'content');
+  assert.ok(image, 'og:image must have content');
+  assert.ok(image.endsWith('assets/og-image.jpg'), 'og:image must point at the generated JPEG');
+  assert.ok(!/^javascript:/i.test(image), 'og:image must not be a javascript: URL');
+
+  const local = image.replace(/^https?:\/\/[^/]+\//, '');
+  assert.ok(existsSync(resolve(root, local)), `og:image target ${local} must exist`);
+});
+
 test('viewport harness loads an origin-root page at the requested size', () => {
   const harnessPath = resolve(root, 'docs/qa/frame.html');
   assert.ok(existsSync(harnessPath), 'docs/qa/frame.html must exist');
